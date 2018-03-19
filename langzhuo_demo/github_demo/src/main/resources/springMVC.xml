@@ -13,7 +13,7 @@
         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
         
         <!-- 自动扫描的包 -->
-        <context:component-scan base-package="github_demo.demo.contorller"></context:component-scan>
+        <context:component-scan base-package="github_demo.demo"></context:component-scan>
         
         <!-- 默认的注解映射的支持(处理器映射器和处理器适配器) -->
   	    <mvc:annotation-driven />
