@@ -17,7 +17,7 @@
     <context:property-placeholder location="classpath:config.properties"/>
     
     <!-- 自动扫描service包 -->
-    <context:component-scan base-package="github_demo.demo.service,github_demo.demo.dao"/>
+<!--     <context:component-scan base-package="github_demo.demo.service,github_demo.demo.dao"/> -->
     
     <!-- 配置数据源 -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
