@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="github_demo.demo.dao.YwSub2recordMapper">
+  <resultMap id="BaseResultMap" type="github_demo.demo.entity.YwSub2record">
+    <id column="fzmxid" jdbcType="DECIMAL" property="fzmxid" />
+    <id column="KSCS" jdbcType="INTEGER" property="kscs" />
+    <result column="JDCJSZKSKMDM" jdbcType="VARCHAR" property="jdcjszkskmdm" />
+    <result column="JDCJSJNZKZMBH" jdbcType="VARCHAR" property="jdcjsjnzkzmbh" />
+    <result column="XXJSZMBH" jdbcType="VARCHAR" property="xxjszmbh" />
+    <result column="JTGLYWDXSFZMDM" jdbcType="VARCHAR" property="jtglywdxsfzmdm" />
+    <result column="JTGLYWDXSFZMHM" jdbcType="VARCHAR" property="jtglywdxsfzmhm" />
+    <result column="XM" jdbcType="VARCHAR" property="xm" />
+    <result column="KSYY" jdbcType="VARCHAR" property="ksyy" />
+    <result column="JDCJSZZJCXDM" jdbcType="VARCHAR" property="jdcjszzjcxdm" />
+    <result column="JDCJSZKSKCDM" jdbcType="VARCHAR" property="jdcjszkskcdm" />
+    <result column="KSCCBH" jdbcType="INTEGER" property="ksccbh" />
+    <result column="JDCHPHM" jdbcType="VARCHAR" property="jdchphm" />
+    <result column="JBR" jdbcType="VARCHAR" property="jbr" />
+    <result column="GLBM" jdbcType="VARCHAR" property="glbm" />
+    <result column="DLR" jdbcType="VARCHAR" property="dlr" />
+    <result column="JDCJSRPXXXDM" jdbcType="VARCHAR" property="jdcjsrpxxxdm" />
+    <result column="CZY" jdbcType="VARCHAR" property="czy" />
+    <result column="KSY1" jdbcType="VARCHAR" property="ksy1" />
+    <result column="KSY2" jdbcType="VARCHAR" property="ksy2" />
+    <result column="KSCJ" jdbcType="INTEGER" property="kscj" />
+    <result column="KSQSSJ" jdbcType="TIMESTAMP" property="ksqssj" />
+    <result column="KSJSSJ" jdbcType="TIMESTAMP" property="ksjssj" />
+    <result column="XKXM" jdbcType="VARCHAR" property="xkxm" />
+    <result column="ZHPPKF" jdbcType="INTEGER" property="zhppkf" />
+    <result column="ZKKF" jdbcType="INTEGER" property="zkkf" />
+    <result column="PDDDKF" jdbcType="INTEGER" property="pdddkf" />
+    <result column="CFTCKF" jdbcType="INTEGER" property="cftckf" />
+    <result column="DBQKF" jdbcType="INTEGER" property="dbqkf" />
+    <result column="QXXSKF" jdbcType="INTEGER" property="qxxskf" />
+    <result column="ZJZWKF" jdbcType="INTEGER" property="zjzwkf" />
+    <result column="XKMKF" jdbcType="INTEGER" property="xkmkf" />
+    <result column="LXZAKF" jdbcType="INTEGER" property="lxzakf" />
+    <result column="QFLKF" jdbcType="INTEGER" property="qflkf" />
+    <result column="ZLDTKF" jdbcType="INTEGER" property="zldtkf" />
+    <result column="GSKF" jdbcType="INTEGER" property="gskf" />
+    <result column="LXJWKF" jdbcType="INTEGER" property="lxjwkf" />
+    <result column="SDKF" jdbcType="INTEGER" property="sdkf" />
+    <result column="YWKF" jdbcType="INTEGER" property="ywkf" />
+    <result column="SHKF" jdbcType="INTEGER" property="shkf" />
+    <result column="JJQKF" jdbcType="INTEGER" property="jjqkf" />
+    <result column="ZXXM1" jdbcType="VARCHAR" property="zxxm1" />
+    <result column="ZXXM2" jdbcType="VARCHAR" property="zxxm2" />
+    <result column="ZXXM3" jdbcType="VARCHAR" property="zxxm3" />
+    <result column="ZXXM1KF" jdbcType="INTEGER" property="zxxm1kf" />
+    <result column="ZXXM2KF" jdbcType="INTEGER" property="zxxm2kf" />
+    <result column="ZXXM3KF" jdbcType="INTEGER" property="zxxm3kf" />
+    <result column="JYW" jdbcType="VARCHAR" property="jyw" />
+    <result column="KSCXH" jdbcType="VARCHAR" property="kscxh" />
+    <result column="KSZT" jdbcType="VARCHAR" property="kszt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    fzmxid, KSCS, JDCJSZKSKMDM, JDCJSJNZKZMBH, XXJSZMBH, JTGLYWDXSFZMDM, JTGLYWDXSFZMHM, 
+    XM, KSYY, JDCJSZZJCXDM, JDCJSZKSKCDM, KSCCBH, JDCHPHM, JBR, GLBM, DLR, JDCJSRPXXXDM, 
+    CZY, KSY1, KSY2, KSCJ, KSQSSJ, KSJSSJ, XKXM, ZHPPKF, ZKKF, PDDDKF, CFTCKF, DBQKF, 
+    QXXSKF, ZJZWKF, XKMKF, LXZAKF, QFLKF, ZLDTKF, GSKF, LXJWKF, SDKF, YWKF, SHKF, JJQKF, 
+    ZXXM1, ZXXM2, ZXXM3, ZXXM1KF, ZXXM2KF, ZXXM3KF, JYW, KSCXH, KSZT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="github_demo.demo.entity.YwSub2recordKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_yw_sub2record
+    where fzmxid = #{fzmxid,jdbcType=DECIMAL}
+      and KSCS = #{kscs,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="github_demo.demo.entity.YwSub2recordKey">
+    delete from t_yw_sub2record
+    where fzmxid = #{fzmxid,jdbcType=DECIMAL}
+      and KSCS = #{kscs,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="github_demo.demo.entity.YwSub2record">
+    insert into t_yw_sub2record (fzmxid, KSCS, JDCJSZKSKMDM, 
+      JDCJSJNZKZMBH, XXJSZMBH, JTGLYWDXSFZMDM, 
+      JTGLYWDXSFZMHM, XM, KSYY, 
+      JDCJSZZJCXDM, JDCJSZKSKCDM, KSCCBH, 
+      JDCHPHM, JBR, GLBM, 
+      DLR, JDCJSRPXXXDM, CZY, 
+      KSY1, KSY2, KSCJ, KSQSSJ, 
+      KSJSSJ, XKXM, ZHPPKF, 
+      ZKKF, PDDDKF, CFTCKF, 
+      DBQKF, QXXSKF, ZJZWKF, 
+      XKMKF, LXZAKF, QFLKF, 
+      ZLDTKF, GSKF, LXJWKF, 
+      SDKF, YWKF, SHKF, JJQKF, 
+      ZXXM1, ZXXM2, ZXXM3, 
+      ZXXM1KF, ZXXM2KF, ZXXM3KF, 
+      JYW, KSCXH, KSZT)
+    values (#{fzmxid,jdbcType=DECIMAL}, #{kscs,jdbcType=INTEGER}, #{jdcjszkskmdm,jdbcType=VARCHAR}, 
+      #{jdcjsjnzkzmbh,jdbcType=VARCHAR}, #{xxjszmbh,jdbcType=VARCHAR}, #{jtglywdxsfzmdm,jdbcType=VARCHAR}, 
+      #{jtglywdxsfzmhm,jdbcType=VARCHAR}, #{xm,jdbcType=VARCHAR}, #{ksyy,jdbcType=VARCHAR}, 
+      #{jdcjszzjcxdm,jdbcType=VARCHAR}, #{jdcjszkskcdm,jdbcType=VARCHAR}, #{ksccbh,jdbcType=INTEGER}, 
+      #{jdchphm,jdbcType=VARCHAR}, #{jbr,jdbcType=VARCHAR}, #{glbm,jdbcType=VARCHAR}, 
+      #{dlr,jdbcType=VARCHAR}, #{jdcjsrpxxxdm,jdbcType=VARCHAR}, #{czy,jdbcType=VARCHAR}, 
+      #{ksy1,jdbcType=VARCHAR}, #{ksy2,jdbcType=VARCHAR}, #{kscj,jdbcType=INTEGER}, #{ksqssj,jdbcType=TIMESTAMP}, 
+      #{ksjssj,jdbcType=TIMESTAMP}, #{xkxm,jdbcType=VARCHAR}, #{zhppkf,jdbcType=INTEGER}, 
+      #{zkkf,jdbcType=INTEGER}, #{pdddkf,jdbcType=INTEGER}, #{cftckf,jdbcType=INTEGER}, 
+      #{dbqkf,jdbcType=INTEGER}, #{qxxskf,jdbcType=INTEGER}, #{zjzwkf,jdbcType=INTEGER}, 
+      #{xkmkf,jdbcType=INTEGER}, #{lxzakf,jdbcType=INTEGER}, #{qflkf,jdbcType=INTEGER}, 
+      #{zldtkf,jdbcType=INTEGER}, #{gskf,jdbcType=INTEGER}, #{lxjwkf,jdbcType=INTEGER}, 
+      #{sdkf,jdbcType=INTEGER}, #{ywkf,jdbcType=INTEGER}, #{shkf,jdbcType=INTEGER}, #{jjqkf,jdbcType=INTEGER}, 
+      #{zxxm1,jdbcType=VARCHAR}, #{zxxm2,jdbcType=VARCHAR}, #{zxxm3,jdbcType=VARCHAR}, 
+      #{zxxm1kf,jdbcType=INTEGER}, #{zxxm2kf,jdbcType=INTEGER}, #{zxxm3kf,jdbcType=INTEGER}, 
+      #{jyw,jdbcType=VARCHAR}, #{kscxh,jdbcType=VARCHAR}, #{kszt,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="github_demo.demo.entity.YwSub2record">
+    insert into t_yw_sub2record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fzmxid != null">
+        fzmxid,
+      </if>
+      <if test="kscs != null">
+        KSCS,
+      </if>
+      <if test="jdcjszkskmdm != null">
+        JDCJSZKSKMDM,
+      </if>
+      <if test="jdcjsjnzkzmbh != null">
+        JDCJSJNZKZMBH,
+      </if>
+      <if test="xxjszmbh != null">
+        XXJSZMBH,
+      </if>
+      <if test="jtglywdxsfzmdm != null">
+        JTGLYWDXSFZMDM,
+      </if>
+      <if test="jtglywdxsfzmhm != null">
+        JTGLYWDXSFZMHM,
+      </if>
+      <if test="xm != null">
+        XM,
+      </if>
+      <if test="ksyy != null">
+        KSYY,
+      </if>
+      <if test="jdcjszzjcxdm != null">
+        JDCJSZZJCXDM,
+      </if>
+      <if test="jdcjszkskcdm != null">
+        JDCJSZKSKCDM,
+      </if>
+      <if test="ksccbh != null">
+        KSCCBH,
+      </if>
+      <if test="jdchphm != null">
+        JDCHPHM,
+      </if>
+      <if test="jbr != null">
+        JBR,
+      </if>
+      <if test="glbm != null">
+        GLBM,
+      </if>
+      <if test="dlr != null">
+        DLR,
+      </if>
+      <if test="jdcjsrpxxxdm != null">
+        JDCJSRPXXXDM,
+      </if>
+      <if test="czy != null">
+        CZY,
+      </if>
+      <if test="ksy1 != null">
+        KSY1,
+      </if>
+      <if test="ksy2 != null">
+        KSY2,
+      </if>
+      <if test="kscj != null">
+        KSCJ,
+      </if>
+      <if test="ksqssj != null">
+        KSQSSJ,
+      </if>
+      <if test="ksjssj != null">
+        KSJSSJ,
+      </if>
+      <if test="xkxm != null">
+        XKXM,
+      </if>
+      <if test="zhppkf != null">
+        ZHPPKF,
+      </if>
+      <if test="zkkf != null">
+        ZKKF,
+      </if>
+      <if test="pdddkf != null">
+        PDDDKF,
+      </if>
+      <if test="cftckf != null">
+        CFTCKF,
+      </if>
+      <if test="dbqkf != null">
+        DBQKF,
+      </if>
+      <if test="qxxskf != null">
+        QXXSKF,
+      </if>
+      <if test="zjzwkf != null">
+        ZJZWKF,
+      </if>
+      <if test="xkmkf != null">
+        XKMKF,
+      </if>
+      <if test="lxzakf != null">
+        LXZAKF,
+      </if>
+      <if test="qflkf != null">
+        QFLKF,
+      </if>
+      <if test="zldtkf != null">
+        ZLDTKF,
+      </if>
+      <if test="gskf != null">
+        GSKF,
+      </if>
+      <if test="lxjwkf != null">
+        LXJWKF,
+      </if>
+      <if test="sdkf != null">
+        SDKF,
+      </if>
+      <if test="ywkf != null">
+        YWKF,
+      </if>
+      <if test="shkf != null">
+        SHKF,
+      </if>
+      <if test="jjqkf != null">
+        JJQKF,
+      </if>
+      <if test="zxxm1 != null">
+        ZXXM1,
+      </if>
+      <if test="zxxm2 != null">
+        ZXXM2,
+      </if>
+      <if test="zxxm3 != null">
+        ZXXM3,
+      </if>
+      <if test="zxxm1kf != null">
+        ZXXM1KF,
+      </if>
+      <if test="zxxm2kf != null">
+        ZXXM2KF,
+      </if>
+      <if test="zxxm3kf != null">
+        ZXXM3KF,
+      </if>
+      <if test="jyw != null">
+        JYW,
+      </if>
+      <if test="kscxh != null">
+        KSCXH,
+      </if>
+      <if test="kszt != null">
+        KSZT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fzmxid != null">
+        #{fzmxid,jdbcType=DECIMAL},
+      </if>
+      <if test="kscs != null">
+        #{kscs,jdbcType=INTEGER},
+      </if>
+      <if test="jdcjszkskmdm != null">
+        #{jdcjszkskmdm,jdbcType=VARCHAR},
+      </if>
+      <if test="jdcjsjnzkzmbh != null">
+        #{jdcjsjnzkzmbh,jdbcType=VARCHAR},
+      </if>
+      <if test="xxjszmbh != null">
+        #{xxjszmbh,jdbcType=VARCHAR},
+      </if>
+      <if test="jtglywdxsfzmdm != null">
+        #{jtglywdxsfzmdm,jdbcType=VARCHAR},
+      </if>
+      <if test="jtglywdxsfzmhm != null">
+        #{jtglywdxsfzmhm,jdbcType=VARCHAR},
+      </if>
+      <if test="xm != null">
+        #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="ksyy != null">
+        #{ksyy,jdbcType=VARCHAR},
+      </if>
+      <if test="jdcjszzjcxdm != null">
+        #{jdcjszzjcxdm,jdbcType=VARCHAR},
+      </if>
+      <if test="jdcjszkskcdm != null">
+        #{jdcjszkskcdm,jdbcType=VARCHAR},
+      </if>
+      <if test="ksccbh != null">
+        #{ksccbh,jdbcType=INTEGER},
+      </if>
+      <if test="jdchphm != null">
+        #{jdchphm,jdbcType=VARCHAR},
+      </if>
+      <if test="jbr != null">
+        #{jbr,jdbcType=VARCHAR},
+      </if>
+      <if test="glbm != null">
+        #{glbm,jdbcType=VARCHAR},
+      </if>
+      <if test="dlr != null">
+        #{dlr,jdbcType=VARCHAR},
+      </if>
+      <if test="jdcjsrpxxxdm != null">
+        #{jdcjsrpxxxdm,jdbcType=VARCHAR},
+      </if>
+      <if test="czy != null">
+        #{czy,jdbcType=VARCHAR},
+      </if>
+      <if test="ksy1 != null">
+        #{ksy1,jdbcType=VARCHAR},
+      </if>
+      <if test="ksy2 != null">
+        #{ksy2,jdbcType=VARCHAR},
+      </if>
+      <if test="kscj != null">
+        #{kscj,jdbcType=INTEGER},
+      </if>
+      <if test="ksqssj != null">
+        #{ksqssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ksjssj != null">
+        #{ksjssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="xkxm != null">
+        #{xkxm,jdbcType=VARCHAR},
+      </if>
+      <if test="zhppkf != null">
+        #{zhppkf,jdbcType=INTEGER},
+      </if>
+      <if test="zkkf != null">
+        #{zkkf,jdbcType=INTEGER},
+      </if>
+      <if test="pdddkf != null">
+        #{pdddkf,jdbcType=INTEGER},
+      </if>
+      <if test="cftckf != null">
+        #{cftckf,jdbcType=INTEGER},
+      </if>
+      <if test="dbqkf != null">
+        #{dbqkf,jdbcType=INTEGER},
+      </if>
+      <if test="qxxskf != null">
+        #{qxxskf,jdbcType=INTEGER},
+      </if>
+      <if test="zjzwkf != null">
+        #{zjzwkf,jdbcType=INTEGER},
+      </if>
+      <if test="xkmkf != null">
+        #{xkmkf,jdbcType=INTEGER},
+      </if>
+      <if test="lxzakf != null">
+        #{lxzakf,jdbcType=INTEGER},
+      </if>
+      <if test="qflkf != null">
+        #{qflkf,jdbcType=INTEGER},
+      </if>
+      <if test="zldtkf != null">
+        #{zldtkf,jdbcType=INTEGER},
+      </if>
+      <if test="gskf != null">
+        #{gskf,jdbcType=INTEGER},
+      </if>
+      <if test="lxjwkf != null">
+        #{lxjwkf,jdbcType=INTEGER},
+      </if>
+      <if test="sdkf != null">
+        #{sdkf,jdbcType=INTEGER},
+      </if>
+      <if test="ywkf != null">
+        #{ywkf,jdbcType=INTEGER},
+      </if>
+      <if test="shkf != null">
+        #{shkf,jdbcType=INTEGER},
+      </if>
+      <if test="jjqkf != null">
+        #{jjqkf,jdbcType=INTEGER},
+      </if>
+      <if test="zxxm1 != null">
+        #{zxxm1,jdbcType=VARCHAR},
+      </if>
+      <if test="zxxm2 != null">
+        #{zxxm2,jdbcType=VARCHAR},
+      </if>
+      <if test="zxxm3 != null">
+        #{zxxm3,jdbcType=VARCHAR},
+      </if>
+      <if test="zxxm1kf != null">
+        #{zxxm1kf,jdbcType=INTEGER},
+      </if>
+      <if test="zxxm2kf != null">
+        #{zxxm2kf,jdbcType=INTEGER},
+      </if>
+      <if test="zxxm3kf != null">
+        #{zxxm3kf,jdbcType=INTEGER},
+      </if>
+      <if test="jyw != null">
+        #{jyw,jdbcType=VARCHAR},
+      </if>
+      <if test="kscxh != null">
+        #{kscxh,jdbcType=VARCHAR},
+      </if>
+      <if test="kszt != null">
+        #{kszt,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="github_demo.demo.entity.YwSub2record">
+    update t_yw_sub2record
+    <set>
+      <if test="jdcjszkskmdm != null">
+        JDCJSZKSKMDM = #{jdcjszkskmdm,jdbcType=VARCHAR},
+      </if>
+      <if test="jdcjsjnzkzmbh != null">
+        JDCJSJNZKZMBH = #{jdcjsjnzkzmbh,jdbcType=VARCHAR},
+      </if>
+      <if test="xxjszmbh != null">
+        XXJSZMBH = #{xxjszmbh,jdbcType=VARCHAR},
+      </if>
+      <if test="jtglywdxsfzmdm != null">
+        JTGLYWDXSFZMDM = #{jtglywdxsfzmdm,jdbcType=VARCHAR},
+      </if>
+      <if test="jtglywdxsfzmhm != null">
+        JTGLYWDXSFZMHM = #{jtglywdxsfzmhm,jdbcType=VARCHAR},
+      </if>
+      <if test="xm != null">
+        XM = #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="ksyy != null">
+        KSYY = #{ksyy,jdbcType=VARCHAR},
+      </if>
+      <if test="jdcjszzjcxdm != null">
+        JDCJSZZJCXDM = #{jdcjszzjcxdm,jdbcType=VARCHAR},
+      </if>
+      <if test="jdcjszkskcdm != null">
+        JDCJSZKSKCDM = #{jdcjszkskcdm,jdbcType=VARCHAR},
+      </if>
+      <if test="ksccbh != null">
+        KSCCBH = #{ksccbh,jdbcType=INTEGER},
+      </if>
+      <if test="jdchphm != null">
+        JDCHPHM = #{jdchphm,jdbcType=VARCHAR},
+      </if>
+      <if test="jbr != null">
+        JBR = #{jbr,jdbcType=VARCHAR},
+      </if>
+      <if test="glbm != null">
+        GLBM = #{glbm,jdbcType=VARCHAR},
+      </if>
+      <if test="dlr != null">
+        DLR = #{dlr,jdbcType=VARCHAR},
+      </if>
+      <if test="jdcjsrpxxxdm != null">
+        JDCJSRPXXXDM = #{jdcjsrpxxxdm,jdbcType=VARCHAR},
+      </if>
+      <if test="czy != null">
+        CZY = #{czy,jdbcType=VARCHAR},
+      </if>
+      <if test="ksy1 != null">
+        KSY1 = #{ksy1,jdbcType=VARCHAR},
+      </if>
+      <if test="ksy2 != null">
+        KSY2 = #{ksy2,jdbcType=VARCHAR},
+      </if>
+      <if test="kscj != null">
+        KSCJ = #{kscj,jdbcType=INTEGER},
+      </if>
+      <if test="ksqssj != null">
+        KSQSSJ = #{ksqssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ksjssj != null">
+        KSJSSJ = #{ksjssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="xkxm != null">
+        XKXM = #{xkxm,jdbcType=VARCHAR},
+      </if>
+      <if test="zhppkf != null">
+        ZHPPKF = #{zhppkf,jdbcType=INTEGER},
+      </if>
+      <if test="zkkf != null">
+        ZKKF = #{zkkf,jdbcType=INTEGER},
+      </if>
+      <if test="pdddkf != null">
+        PDDDKF = #{pdddkf,jdbcType=INTEGER},
+      </if>
+      <if test="cftckf != null">
+        CFTCKF = #{cftckf,jdbcType=INTEGER},
+      </if>
+      <if test="dbqkf != null">
+        DBQKF = #{dbqkf,jdbcType=INTEGER},
+      </if>
+      <if test="qxxskf != null">
+        QXXSKF = #{qxxskf,jdbcType=INTEGER},
+      </if>
+      <if test="zjzwkf != null">
+        ZJZWKF = #{zjzwkf,jdbcType=INTEGER},
+      </if>
+      <if test="xkmkf != null">
+        XKMKF = #{xkmkf,jdbcType=INTEGER},
+      </if>
+      <if test="lxzakf != null">
+        LXZAKF = #{lxzakf,jdbcType=INTEGER},
+      </if>
+      <if test="qflkf != null">
+        QFLKF = #{qflkf,jdbcType=INTEGER},
+      </if>
+      <if test="zldtkf != null">
+        ZLDTKF = #{zldtkf,jdbcType=INTEGER},
+      </if>
+      <if test="gskf != null">
+        GSKF = #{gskf,jdbcType=INTEGER},
+      </if>
+      <if test="lxjwkf != null">
+        LXJWKF = #{lxjwkf,jdbcType=INTEGER},
+      </if>
+      <if test="sdkf != null">
+        SDKF = #{sdkf,jdbcType=INTEGER},
+      </if>
+      <if test="ywkf != null">
+        YWKF = #{ywkf,jdbcType=INTEGER},
+      </if>
+      <if test="shkf != null">
+        SHKF = #{shkf,jdbcType=INTEGER},
+      </if>
+      <if test="jjqkf != null">
+        JJQKF = #{jjqkf,jdbcType=INTEGER},
+      </if>
+      <if test="zxxm1 != null">
+        ZXXM1 = #{zxxm1,jdbcType=VARCHAR},
+      </if>
+      <if test="zxxm2 != null">
+        ZXXM2 = #{zxxm2,jdbcType=VARCHAR},
+      </if>
+      <if test="zxxm3 != null">
+        ZXXM3 = #{zxxm3,jdbcType=VARCHAR},
+      </if>
+      <if test="zxxm1kf != null">
+        ZXXM1KF = #{zxxm1kf,jdbcType=INTEGER},
+      </if>
+      <if test="zxxm2kf != null">
+        ZXXM2KF = #{zxxm2kf,jdbcType=INTEGER},
+      </if>
+      <if test="zxxm3kf != null">
+        ZXXM3KF = #{zxxm3kf,jdbcType=INTEGER},
+      </if>
+      <if test="jyw != null">
+        JYW = #{jyw,jdbcType=VARCHAR},
+      </if>
+      <if test="kscxh != null">
+        KSCXH = #{kscxh,jdbcType=VARCHAR},
+      </if>
+      <if test="kszt != null">
+        KSZT = #{kszt,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where fzmxid = #{fzmxid,jdbcType=DECIMAL}
+      and KSCS = #{kscs,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="github_demo.demo.entity.YwSub2record">
+    update t_yw_sub2record
+    set JDCJSZKSKMDM = #{jdcjszkskmdm,jdbcType=VARCHAR},
+      JDCJSJNZKZMBH = #{jdcjsjnzkzmbh,jdbcType=VARCHAR},
+      XXJSZMBH = #{xxjszmbh,jdbcType=VARCHAR},
+      JTGLYWDXSFZMDM = #{jtglywdxsfzmdm,jdbcType=VARCHAR},
+      JTGLYWDXSFZMHM = #{jtglywdxsfzmhm,jdbcType=VARCHAR},
+      XM = #{xm,jdbcType=VARCHAR},
+      KSYY = #{ksyy,jdbcType=VARCHAR},
+      JDCJSZZJCXDM = #{jdcjszzjcxdm,jdbcType=VARCHAR},
+      JDCJSZKSKCDM = #{jdcjszkskcdm,jdbcType=VARCHAR},
+      KSCCBH = #{ksccbh,jdbcType=INTEGER},
+      JDCHPHM = #{jdchphm,jdbcType=VARCHAR},
+      JBR = #{jbr,jdbcType=VARCHAR},
+      GLBM = #{glbm,jdbcType=VARCHAR},
+      DLR = #{dlr,jdbcType=VARCHAR},
+      JDCJSRPXXXDM = #{jdcjsrpxxxdm,jdbcType=VARCHAR},
+      CZY = #{czy,jdbcType=VARCHAR},
+      KSY1 = #{ksy1,jdbcType=VARCHAR},
+      KSY2 = #{ksy2,jdbcType=VARCHAR},
+      KSCJ = #{kscj,jdbcType=INTEGER},
+      KSQSSJ = #{ksqssj,jdbcType=TIMESTAMP},
+      KSJSSJ = #{ksjssj,jdbcType=TIMESTAMP},
+      XKXM = #{xkxm,jdbcType=VARCHAR},
+      ZHPPKF = #{zhppkf,jdbcType=INTEGER},
+      ZKKF = #{zkkf,jdbcType=INTEGER},
+      PDDDKF = #{pdddkf,jdbcType=INTEGER},
+      CFTCKF = #{cftckf,jdbcType=INTEGER},
+      DBQKF = #{dbqkf,jdbcType=INTEGER},
+      QXXSKF = #{qxxskf,jdbcType=INTEGER},
+      ZJZWKF = #{zjzwkf,jdbcType=INTEGER},
+      XKMKF = #{xkmkf,jdbcType=INTEGER},
+      LXZAKF = #{lxzakf,jdbcType=INTEGER},
+      QFLKF = #{qflkf,jdbcType=INTEGER},
+      ZLDTKF = #{zldtkf,jdbcType=INTEGER},
+      GSKF = #{gskf,jdbcType=INTEGER},
+      LXJWKF = #{lxjwkf,jdbcType=INTEGER},
+      SDKF = #{sdkf,jdbcType=INTEGER},
+      YWKF = #{ywkf,jdbcType=INTEGER},
+      SHKF = #{shkf,jdbcType=INTEGER},
+      JJQKF = #{jjqkf,jdbcType=INTEGER},
+      ZXXM1 = #{zxxm1,jdbcType=VARCHAR},
+      ZXXM2 = #{zxxm2,jdbcType=VARCHAR},
+      ZXXM3 = #{zxxm3,jdbcType=VARCHAR},
+      ZXXM1KF = #{zxxm1kf,jdbcType=INTEGER},
+      ZXXM2KF = #{zxxm2kf,jdbcType=INTEGER},
+      ZXXM3KF = #{zxxm3kf,jdbcType=INTEGER},
+      JYW = #{jyw,jdbcType=VARCHAR},
+      KSCXH = #{kscxh,jdbcType=VARCHAR},
+      KSZT = #{kszt,jdbcType=VARCHAR}
+    where fzmxid = #{fzmxid,jdbcType=DECIMAL}
+      and KSCS = #{kscs,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="github_demo.demo.dao.DownFzMapper">
+  <resultMap id="BaseResultMap" type="github_demo.demo.entity.DownFz">
+    <id column="fzjh_id" jdbcType="DECIMAL" property="fzjhId" />
+    <result column="xh" jdbcType="VARCHAR" property="xh" />
+    <result column="kskm" jdbcType="VARCHAR" property="kskm" />
+    <result column="ksrq" jdbcType="TIMESTAMP" property="ksrq" />
+    <result column="ksdd" jdbcType="VARCHAR" property="ksdd" />
+    <result column="kcxh" jdbcType="VARCHAR" property="kcxh" />
+    <result column="kscx" jdbcType="VARCHAR" property="kscx" />
+    <result column="kscc" jdbcType="INTEGER" property="kscc" />
+    <result column="kchp" jdbcType="VARCHAR" property="kchp" />
+    <result column="ksy" jdbcType="VARCHAR" property="ksy" />
+    <result column="ksxm" jdbcType="VARCHAR" property="ksxm" />
+    <result column="glbm" jdbcType="VARCHAR" property="glbm" />
+    <result column="ksxl" jdbcType="VARCHAR" property="ksxl" />
+    <result column="jym" jdbcType="VARCHAR" property="jym" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    fzjh_id, xh, kskm, ksrq, ksdd, kcxh, kscx, kscc, kchp, ksy, ksxm, glbm, ksxl, jym
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_down_fz
+    where fzjh_id = #{fzjhId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_down_fz
+    where fzjh_id = #{fzjhId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="github_demo.demo.entity.DownFz">
+    insert into t_down_fz (fzjh_id, xh, kskm, 
+      ksrq, ksdd, kcxh, 
+      kscx, kscc, kchp, ksy, 
+      ksxm, glbm, ksxl, jym
+      )
+    values (#{fzjhId,jdbcType=DECIMAL}, #{xh,jdbcType=VARCHAR}, #{kskm,jdbcType=VARCHAR}, 
+      #{ksrq,jdbcType=TIMESTAMP}, #{ksdd,jdbcType=VARCHAR}, #{kcxh,jdbcType=VARCHAR}, 
+      #{kscx,jdbcType=VARCHAR}, #{kscc,jdbcType=INTEGER}, #{kchp,jdbcType=VARCHAR}, #{ksy,jdbcType=VARCHAR}, 
+      #{ksxm,jdbcType=VARCHAR}, #{glbm,jdbcType=VARCHAR}, #{ksxl,jdbcType=VARCHAR}, #{jym,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="github_demo.demo.entity.DownFz">
+    insert into t_down_fz
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fzjhId != null">
+        fzjh_id,
+      </if>
+      <if test="xh != null">
+        xh,
+      </if>
+      <if test="kskm != null">
+        kskm,
+      </if>
+      <if test="ksrq != null">
+        ksrq,
+      </if>
+      <if test="ksdd != null">
+        ksdd,
+      </if>
+      <if test="kcxh != null">
+        kcxh,
+      </if>
+      <if test="kscx != null">
+        kscx,
+      </if>
+      <if test="kscc != null">
+        kscc,
+      </if>
+      <if test="kchp != null">
+        kchp,
+      </if>
+      <if test="ksy != null">
+        ksy,
+      </if>
+      <if test="ksxm != null">
+        ksxm,
+      </if>
+      <if test="glbm != null">
+        glbm,
+      </if>
+      <if test="ksxl != null">
+        ksxl,
+      </if>
+      <if test="jym != null">
+        jym,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fzjhId != null">
+        #{fzjhId,jdbcType=DECIMAL},
+      </if>
+      <if test="xh != null">
+        #{xh,jdbcType=VARCHAR},
+      </if>
+      <if test="kskm != null">
+        #{kskm,jdbcType=VARCHAR},
+      </if>
+      <if test="ksrq != null">
+        #{ksrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ksdd != null">
+        #{ksdd,jdbcType=VARCHAR},
+      </if>
+      <if test="kcxh != null">
+        #{kcxh,jdbcType=VARCHAR},
+      </if>
+      <if test="kscx != null">
+        #{kscx,jdbcType=VARCHAR},
+      </if>
+      <if test="kscc != null">
+        #{kscc,jdbcType=INTEGER},
+      </if>
+      <if test="kchp != null">
+        #{kchp,jdbcType=VARCHAR},
+      </if>
+      <if test="ksy != null">
+        #{ksy,jdbcType=VARCHAR},
+      </if>
+      <if test="ksxm != null">
+        #{ksxm,jdbcType=VARCHAR},
+      </if>
+      <if test="glbm != null">
+        #{glbm,jdbcType=VARCHAR},
+      </if>
+      <if test="ksxl != null">
+        #{ksxl,jdbcType=VARCHAR},
+      </if>
+      <if test="jym != null">
+        #{jym,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="github_demo.demo.entity.DownFz">
+    update t_down_fz
+    <set>
+      <if test="xh != null">
+        xh = #{xh,jdbcType=VARCHAR},
+      </if>
+      <if test="kskm != null">
+        kskm = #{kskm,jdbcType=VARCHAR},
+      </if>
+      <if test="ksrq != null">
+        ksrq = #{ksrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ksdd != null">
+        ksdd = #{ksdd,jdbcType=VARCHAR},
+      </if>
+      <if test="kcxh != null">
+        kcxh = #{kcxh,jdbcType=VARCHAR},
+      </if>
+      <if test="kscx != null">
+        kscx = #{kscx,jdbcType=VARCHAR},
+      </if>
+      <if test="kscc != null">
+        kscc = #{kscc,jdbcType=INTEGER},
+      </if>
+      <if test="kchp != null">
+        kchp = #{kchp,jdbcType=VARCHAR},
+      </if>
+      <if test="ksy != null">
+        ksy = #{ksy,jdbcType=VARCHAR},
+      </if>
+      <if test="ksxm != null">
+        ksxm = #{ksxm,jdbcType=VARCHAR},
+      </if>
+      <if test="glbm != null">
+        glbm = #{glbm,jdbcType=VARCHAR},
+      </if>
+      <if test="ksxl != null">
+        ksxl = #{ksxl,jdbcType=VARCHAR},
+      </if>
+      <if test="jym != null">
+        jym = #{jym,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where fzjh_id = #{fzjhId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="github_demo.demo.entity.DownFz">
+    update t_down_fz
+    set xh = #{xh,jdbcType=VARCHAR},
+      kskm = #{kskm,jdbcType=VARCHAR},
+      ksrq = #{ksrq,jdbcType=TIMESTAMP},
+      ksdd = #{ksdd,jdbcType=VARCHAR},
+      kcxh = #{kcxh,jdbcType=VARCHAR},
+      kscx = #{kscx,jdbcType=VARCHAR},
+      kscc = #{kscc,jdbcType=INTEGER},
+      kchp = #{kchp,jdbcType=VARCHAR},
+      ksy = #{ksy,jdbcType=VARCHAR},
+      ksxm = #{ksxm,jdbcType=VARCHAR},
+      glbm = #{glbm,jdbcType=VARCHAR},
+      ksxl = #{ksxl,jdbcType=VARCHAR},
+      jym = #{jym,jdbcType=VARCHAR}
+    where fzjh_id = #{fzjhId,jdbcType=DECIMAL}
+  </update>
+</mapper>

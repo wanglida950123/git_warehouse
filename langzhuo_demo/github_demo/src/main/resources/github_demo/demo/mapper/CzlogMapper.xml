@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="github_demo.demo.dao.CzlogMapper">
+  <resultMap id="BaseResultMap" type="github_demo.demo.entity.Czlog">
+    <id column="id" jdbcType="DECIMAL" property="id" />
+    <result column="uid" jdbcType="VARCHAR" property="uid" />
+    <result column="c_name" jdbcType="VARCHAR" property="cName" />
+    <result column="rqsj" jdbcType="TIMESTAMP" property="rqsj" />
+    <result column="c_act" jdbcType="VARCHAR" property="cAct" />
+    <result column="c_sql" jdbcType="VARCHAR" property="cSql" />
+    <result column="c_ip" jdbcType="VARCHAR" property="cIp" />
+    <result column="c_ktbs" jdbcType="VARCHAR" property="cKtbs" />
+    <result column="c_jg" jdbcType="VARCHAR" property="cJg" />
+    <result column="c_sm" jdbcType="VARCHAR" property="cSm" />
+    <result column="c_datauser" jdbcType="VARCHAR" property="cDatauser" />
+    <result column="c_table" jdbcType="VARCHAR" property="cTable" />
+    <result column="jym" jdbcType="VARCHAR" property="jym" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, uid, c_name, rqsj, c_act, c_sql, c_ip, c_ktbs, c_jg, c_sm, c_datauser, c_table, 
+    jym
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_czlog
+    where id = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from m_czlog
+    where id = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="github_demo.demo.entity.Czlog">
+    insert into m_czlog (id, uid, c_name, 
+      rqsj, c_act, c_sql, 
+      c_ip, c_ktbs, c_jg, c_sm, 
+      c_datauser, c_table, jym
+      )
+    values (#{id,jdbcType=DECIMAL}, #{uid,jdbcType=VARCHAR}, #{cName,jdbcType=VARCHAR}, 
+      #{rqsj,jdbcType=TIMESTAMP}, #{cAct,jdbcType=VARCHAR}, #{cSql,jdbcType=VARCHAR}, 
+      #{cIp,jdbcType=VARCHAR}, #{cKtbs,jdbcType=VARCHAR}, #{cJg,jdbcType=VARCHAR}, #{cSm,jdbcType=VARCHAR}, 
+      #{cDatauser,jdbcType=VARCHAR}, #{cTable,jdbcType=VARCHAR}, #{jym,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="github_demo.demo.entity.Czlog">
+    insert into m_czlog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="cName != null">
+        c_name,
+      </if>
+      <if test="rqsj != null">
+        rqsj,
+      </if>
+      <if test="cAct != null">
+        c_act,
+      </if>
+      <if test="cSql != null">
+        c_sql,
+      </if>
+      <if test="cIp != null">
+        c_ip,
+      </if>
+      <if test="cKtbs != null">
+        c_ktbs,
+      </if>
+      <if test="cJg != null">
+        c_jg,
+      </if>
+      <if test="cSm != null">
+        c_sm,
+      </if>
+      <if test="cDatauser != null">
+        c_datauser,
+      </if>
+      <if test="cTable != null">
+        c_table,
+      </if>
+      <if test="jym != null">
+        jym,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="cName != null">
+        #{cName,jdbcType=VARCHAR},
+      </if>
+      <if test="rqsj != null">
+        #{rqsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cAct != null">
+        #{cAct,jdbcType=VARCHAR},
+      </if>
+      <if test="cSql != null">
+        #{cSql,jdbcType=VARCHAR},
+      </if>
+      <if test="cIp != null">
+        #{cIp,jdbcType=VARCHAR},
+      </if>
+      <if test="cKtbs != null">
+        #{cKtbs,jdbcType=VARCHAR},
+      </if>
+      <if test="cJg != null">
+        #{cJg,jdbcType=VARCHAR},
+      </if>
+      <if test="cSm != null">
+        #{cSm,jdbcType=VARCHAR},
+      </if>
+      <if test="cDatauser != null">
+        #{cDatauser,jdbcType=VARCHAR},
+      </if>
+      <if test="cTable != null">
+        #{cTable,jdbcType=VARCHAR},
+      </if>
+      <if test="jym != null">
+        #{jym,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="github_demo.demo.entity.Czlog">
+    update m_czlog
+    <set>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="cName != null">
+        c_name = #{cName,jdbcType=VARCHAR},
+      </if>
+      <if test="rqsj != null">
+        rqsj = #{rqsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cAct != null">
+        c_act = #{cAct,jdbcType=VARCHAR},
+      </if>
+      <if test="cSql != null">
+        c_sql = #{cSql,jdbcType=VARCHAR},
+      </if>
+      <if test="cIp != null">
+        c_ip = #{cIp,jdbcType=VARCHAR},
+      </if>
+      <if test="cKtbs != null">
+        c_ktbs = #{cKtbs,jdbcType=VARCHAR},
+      </if>
+      <if test="cJg != null">
+        c_jg = #{cJg,jdbcType=VARCHAR},
+      </if>
+      <if test="cSm != null">
+        c_sm = #{cSm,jdbcType=VARCHAR},
+      </if>
+      <if test="cDatauser != null">
+        c_datauser = #{cDatauser,jdbcType=VARCHAR},
+      </if>
+      <if test="cTable != null">
+        c_table = #{cTable,jdbcType=VARCHAR},
+      </if>
+      <if test="jym != null">
+        jym = #{jym,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="github_demo.demo.entity.Czlog">
+    update m_czlog
+    set uid = #{uid,jdbcType=VARCHAR},
+      c_name = #{cName,jdbcType=VARCHAR},
+      rqsj = #{rqsj,jdbcType=TIMESTAMP},
+      c_act = #{cAct,jdbcType=VARCHAR},
+      c_sql = #{cSql,jdbcType=VARCHAR},
+      c_ip = #{cIp,jdbcType=VARCHAR},
+      c_ktbs = #{cKtbs,jdbcType=VARCHAR},
+      c_jg = #{cJg,jdbcType=VARCHAR},
+      c_sm = #{cSm,jdbcType=VARCHAR},
+      c_datauser = #{cDatauser,jdbcType=VARCHAR},
+      c_table = #{cTable,jdbcType=VARCHAR},
+      jym = #{jym,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>

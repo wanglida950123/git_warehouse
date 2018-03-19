@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="github_demo.demo.dao.DownFzmxMapper">
+  <resultMap id="BaseResultMap" type="github_demo.demo.entity.DownFzmx">
+    <id column="fzmx_id" jdbcType="DECIMAL" property="fzmxId" />
+    <result column="fzjh_id" jdbcType="DECIMAL" property="fzjhId" />
+    <result column="lsh" jdbcType="VARCHAR" property="lsh" />
+    <result column="sfzmhm" jdbcType="VARCHAR" property="sfzmhm" />
+    <result column="xm" jdbcType="VARCHAR" property="xm" />
+    <result column="dlr" jdbcType="VARCHAR" property="dlr" />
+    <result column="kchp" jdbcType="VARCHAR" property="kchp" />
+    <result column="Jxxh" jdbcType="VARCHAR" property="jxxh" />
+    <result column="kscs" jdbcType="INTEGER" property="kscs" />
+    <result column="zt" jdbcType="VARCHAR" property="zt" />
+    <result column="jym" jdbcType="VARCHAR" property="jym" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    fzmx_id, fzjh_id, lsh, sfzmhm, xm, dlr, kchp, Jxxh, kscs, zt, jym
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_down_fzmx
+    where fzmx_id = #{fzmxId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_down_fzmx
+    where fzmx_id = #{fzmxId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="github_demo.demo.entity.DownFzmx">
+    insert into t_down_fzmx (fzmx_id, fzjh_id, lsh, 
+      sfzmhm, xm, dlr, kchp, 
+      Jxxh, kscs, zt, jym
+      )
+    values (#{fzmxId,jdbcType=DECIMAL}, #{fzjhId,jdbcType=DECIMAL}, #{lsh,jdbcType=VARCHAR}, 
+      #{sfzmhm,jdbcType=VARCHAR}, #{xm,jdbcType=VARCHAR}, #{dlr,jdbcType=VARCHAR}, #{kchp,jdbcType=VARCHAR}, 
+      #{jxxh,jdbcType=VARCHAR}, #{kscs,jdbcType=INTEGER}, #{zt,jdbcType=VARCHAR}, #{jym,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="github_demo.demo.entity.DownFzmx">
+    insert into t_down_fzmx
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fzmxId != null">
+        fzmx_id,
+      </if>
+      <if test="fzjhId != null">
+        fzjh_id,
+      </if>
+      <if test="lsh != null">
+        lsh,
+      </if>
+      <if test="sfzmhm != null">
+        sfzmhm,
+      </if>
+      <if test="xm != null">
+        xm,
+      </if>
+      <if test="dlr != null">
+        dlr,
+      </if>
+      <if test="kchp != null">
+        kchp,
+      </if>
+      <if test="jxxh != null">
+        Jxxh,
+      </if>
+      <if test="kscs != null">
+        kscs,
+      </if>
+      <if test="zt != null">
+        zt,
+      </if>
+      <if test="jym != null">
+        jym,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fzmxId != null">
+        #{fzmxId,jdbcType=DECIMAL},
+      </if>
+      <if test="fzjhId != null">
+        #{fzjhId,jdbcType=DECIMAL},
+      </if>
+      <if test="lsh != null">
+        #{lsh,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzmhm != null">
+        #{sfzmhm,jdbcType=VARCHAR},
+      </if>
+      <if test="xm != null">
+        #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="dlr != null">
+        #{dlr,jdbcType=VARCHAR},
+      </if>
+      <if test="kchp != null">
+        #{kchp,jdbcType=VARCHAR},
+      </if>
+      <if test="jxxh != null">
+        #{jxxh,jdbcType=VARCHAR},
+      </if>
+      <if test="kscs != null">
+        #{kscs,jdbcType=INTEGER},
+      </if>
+      <if test="zt != null">
+        #{zt,jdbcType=VARCHAR},
+      </if>
+      <if test="jym != null">
+        #{jym,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="github_demo.demo.entity.DownFzmx">
+    update t_down_fzmx
+    <set>
+      <if test="fzjhId != null">
+        fzjh_id = #{fzjhId,jdbcType=DECIMAL},
+      </if>
+      <if test="lsh != null">
+        lsh = #{lsh,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzmhm != null">
+        sfzmhm = #{sfzmhm,jdbcType=VARCHAR},
+      </if>
+      <if test="xm != null">
+        xm = #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="dlr != null">
+        dlr = #{dlr,jdbcType=VARCHAR},
+      </if>
+      <if test="kchp != null">
+        kchp = #{kchp,jdbcType=VARCHAR},
+      </if>
+      <if test="jxxh != null">
+        Jxxh = #{jxxh,jdbcType=VARCHAR},
+      </if>
+      <if test="kscs != null">
+        kscs = #{kscs,jdbcType=INTEGER},
+      </if>
+      <if test="zt != null">
+        zt = #{zt,jdbcType=VARCHAR},
+      </if>
+      <if test="jym != null">
+        jym = #{jym,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where fzmx_id = #{fzmxId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="github_demo.demo.entity.DownFzmx">
+    update t_down_fzmx
+    set fzjh_id = #{fzjhId,jdbcType=DECIMAL},
+      lsh = #{lsh,jdbcType=VARCHAR},
+      sfzmhm = #{sfzmhm,jdbcType=VARCHAR},
+      xm = #{xm,jdbcType=VARCHAR},
+      dlr = #{dlr,jdbcType=VARCHAR},
+      kchp = #{kchp,jdbcType=VARCHAR},
+      Jxxh = #{jxxh,jdbcType=VARCHAR},
+      kscs = #{kscs,jdbcType=INTEGER},
+      zt = #{zt,jdbcType=VARCHAR},
+      jym = #{jym,jdbcType=VARCHAR}
+    where fzmx_id = #{fzmxId,jdbcType=DECIMAL}
+  </update>
+</mapper>

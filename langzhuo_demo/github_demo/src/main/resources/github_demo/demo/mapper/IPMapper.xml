@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="github_demo.demo.dao.IPMapper">
+  <resultMap id="BaseResultMap" type="github_demo.demo.entity.IP">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="ipsbcs" jdbcType="INTEGER" property="ipsbcs" />
+    <result column="ipmax" jdbcType="INTEGER" property="ipmax" />
+    <result column="sdsjks" jdbcType="TIMESTAMP" property="sdsjks" />
+    <result column="sdsjjs" jdbcType="TIMESTAMP" property="sdsjjs" />
+    <result column="jym" jdbcType="VARCHAR" property="jym" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, ipsbcs, ipmax, sdsjks, sdsjjs, jym
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_ip
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from m_ip
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="github_demo.demo.entity.IP">
+    insert into m_ip (id, ipsbcs, ipmax, 
+      sdsjks, sdsjjs, jym
+      )
+    values (#{id,jdbcType=VARCHAR}, #{ipsbcs,jdbcType=INTEGER}, #{ipmax,jdbcType=INTEGER}, 
+      #{sdsjks,jdbcType=TIMESTAMP}, #{sdsjjs,jdbcType=TIMESTAMP}, #{jym,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="github_demo.demo.entity.IP">
+    insert into m_ip
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="ipsbcs != null">
+        ipsbcs,
+      </if>
+      <if test="ipmax != null">
+        ipmax,
+      </if>
+      <if test="sdsjks != null">
+        sdsjks,
+      </if>
+      <if test="sdsjjs != null">
+        sdsjjs,
+      </if>
+      <if test="jym != null">
+        jym,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="ipsbcs != null">
+        #{ipsbcs,jdbcType=INTEGER},
+      </if>
+      <if test="ipmax != null">
+        #{ipmax,jdbcType=INTEGER},
+      </if>
+      <if test="sdsjks != null">
+        #{sdsjks,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sdsjjs != null">
+        #{sdsjjs,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jym != null">
+        #{jym,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="github_demo.demo.entity.IP">
+    update m_ip
+    <set>
+      <if test="ipsbcs != null">
+        ipsbcs = #{ipsbcs,jdbcType=INTEGER},
+      </if>
+      <if test="ipmax != null">
+        ipmax = #{ipmax,jdbcType=INTEGER},
+      </if>
+      <if test="sdsjks != null">
+        sdsjks = #{sdsjks,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sdsjjs != null">
+        sdsjjs = #{sdsjjs,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jym != null">
+        jym = #{jym,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="github_demo.demo.entity.IP">
+    update m_ip
+    set ipsbcs = #{ipsbcs,jdbcType=INTEGER},
+      ipmax = #{ipmax,jdbcType=INTEGER},
+      sdsjks = #{sdsjks,jdbcType=TIMESTAMP},
+      sdsjjs = #{sdsjjs,jdbcType=TIMESTAMP},
+      jym = #{jym,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

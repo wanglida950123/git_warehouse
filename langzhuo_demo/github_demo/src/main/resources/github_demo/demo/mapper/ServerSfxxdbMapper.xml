@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="github_demo.demo.dao.ServerSfxxdbMapper">
+  <resultMap id="BaseResultMap" type="github_demo.demo.entity.ServerSfxxdb">
+    <id column="sfxxdb_id" jdbcType="DECIMAL" property="sfxxdbId" />
+    <result column="fzmx_id" jdbcType="DECIMAL" property="fzmxId" />
+    <result column="kscs" jdbcType="INTEGER" property="kscs" />
+    <result column="lsh" jdbcType="VARCHAR" property="lsh" />
+    <result column="kskm" jdbcType="VARCHAR" property="kskm" />
+    <result column="sfzmhm" jdbcType="VARCHAR" property="sfzmhm" />
+    <result column="ksysfzmhm" jdbcType="VARCHAR" property="ksysfzmhm" />
+    <result column="kssj" jdbcType="TIMESTAMP" property="kssj" />
+    <result column="sendzt" jdbcType="VARCHAR" property="sendzt" />
+    <result column="ksxtbh" jdbcType="VARCHAR" property="ksxtbh" />
+    <result column="mess" jdbcType="VARCHAR" property="mess" />
+    <result column="jym" jdbcType="VARCHAR" property="jym" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="github_demo.demo.entity.ServerSfxxdb">
+    <result column="zp" jdbcType="LONGVARCHAR" property="zp" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    sfxxdb_id, fzmx_id, kscs, lsh, kskm, sfzmhm, ksysfzmhm, kssj, sendzt, ksxtbh, mess, 
+    jym
+  </sql>
+  <sql id="Blob_Column_List">
+    zp
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_server_sfxxdb
+    where sfxxdb_id = #{sfxxdbId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_server_sfxxdb
+    where sfxxdb_id = #{sfxxdbId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="github_demo.demo.entity.ServerSfxxdb">
+    insert into t_server_sfxxdb (sfxxdb_id, fzmx_id, kscs, 
+      lsh, kskm, sfzmhm, 
+      ksysfzmhm, kssj, sendzt, 
+      ksxtbh, mess, jym, 
+      zp)
+    values (#{sfxxdbId,jdbcType=DECIMAL}, #{fzmxId,jdbcType=DECIMAL}, #{kscs,jdbcType=INTEGER}, 
+      #{lsh,jdbcType=VARCHAR}, #{kskm,jdbcType=VARCHAR}, #{sfzmhm,jdbcType=VARCHAR}, 
+      #{ksysfzmhm,jdbcType=VARCHAR}, #{kssj,jdbcType=TIMESTAMP}, #{sendzt,jdbcType=VARCHAR}, 
+      #{ksxtbh,jdbcType=VARCHAR}, #{mess,jdbcType=VARCHAR}, #{jym,jdbcType=VARCHAR}, 
+      #{zp,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="github_demo.demo.entity.ServerSfxxdb">
+    insert into t_server_sfxxdb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sfxxdbId != null">
+        sfxxdb_id,
+      </if>
+      <if test="fzmxId != null">
+        fzmx_id,
+      </if>
+      <if test="kscs != null">
+        kscs,
+      </if>
+      <if test="lsh != null">
+        lsh,
+      </if>
+      <if test="kskm != null">
+        kskm,
+      </if>
+      <if test="sfzmhm != null">
+        sfzmhm,
+      </if>
+      <if test="ksysfzmhm != null">
+        ksysfzmhm,
+      </if>
+      <if test="kssj != null">
+        kssj,
+      </if>
+      <if test="sendzt != null">
+        sendzt,
+      </if>
+      <if test="ksxtbh != null">
+        ksxtbh,
+      </if>
+      <if test="mess != null">
+        mess,
+      </if>
+      <if test="jym != null">
+        jym,
+      </if>
+      <if test="zp != null">
+        zp,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sfxxdbId != null">
+        #{sfxxdbId,jdbcType=DECIMAL},
+      </if>
+      <if test="fzmxId != null">
+        #{fzmxId,jdbcType=DECIMAL},
+      </if>
+      <if test="kscs != null">
+        #{kscs,jdbcType=INTEGER},
+      </if>
+      <if test="lsh != null">
+        #{lsh,jdbcType=VARCHAR},
+      </if>
+      <if test="kskm != null">
+        #{kskm,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzmhm != null">
+        #{sfzmhm,jdbcType=VARCHAR},
+      </if>
+      <if test="ksysfzmhm != null">
+        #{ksysfzmhm,jdbcType=VARCHAR},
+      </if>
+      <if test="kssj != null">
+        #{kssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendzt != null">
+        #{sendzt,jdbcType=VARCHAR},
+      </if>
+      <if test="ksxtbh != null">
+        #{ksxtbh,jdbcType=VARCHAR},
+      </if>
+      <if test="mess != null">
+        #{mess,jdbcType=VARCHAR},
+      </if>
+      <if test="jym != null">
+        #{jym,jdbcType=VARCHAR},
+      </if>
+      <if test="zp != null">
+        #{zp,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="github_demo.demo.entity.ServerSfxxdb">
+    update t_server_sfxxdb
+    <set>
+      <if test="fzmxId != null">
+        fzmx_id = #{fzmxId,jdbcType=DECIMAL},
+      </if>
+      <if test="kscs != null">
+        kscs = #{kscs,jdbcType=INTEGER},
+      </if>
+      <if test="lsh != null">
+        lsh = #{lsh,jdbcType=VARCHAR},
+      </if>
+      <if test="kskm != null">
+        kskm = #{kskm,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzmhm != null">
+        sfzmhm = #{sfzmhm,jdbcType=VARCHAR},
+      </if>
+      <if test="ksysfzmhm != null">
+        ksysfzmhm = #{ksysfzmhm,jdbcType=VARCHAR},
+      </if>
+      <if test="kssj != null">
+        kssj = #{kssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendzt != null">
+        sendzt = #{sendzt,jdbcType=VARCHAR},
+      </if>
+      <if test="ksxtbh != null">
+        ksxtbh = #{ksxtbh,jdbcType=VARCHAR},
+      </if>
+      <if test="mess != null">
+        mess = #{mess,jdbcType=VARCHAR},
+      </if>
+      <if test="jym != null">
+        jym = #{jym,jdbcType=VARCHAR},
+      </if>
+      <if test="zp != null">
+        zp = #{zp,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where sfxxdb_id = #{sfxxdbId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="github_demo.demo.entity.ServerSfxxdb">
+    update t_server_sfxxdb
+    set fzmx_id = #{fzmxId,jdbcType=DECIMAL},
+      kscs = #{kscs,jdbcType=INTEGER},
+      lsh = #{lsh,jdbcType=VARCHAR},
+      kskm = #{kskm,jdbcType=VARCHAR},
+      sfzmhm = #{sfzmhm,jdbcType=VARCHAR},
+      ksysfzmhm = #{ksysfzmhm,jdbcType=VARCHAR},
+      kssj = #{kssj,jdbcType=TIMESTAMP},
+      sendzt = #{sendzt,jdbcType=VARCHAR},
+      ksxtbh = #{ksxtbh,jdbcType=VARCHAR},
+      mess = #{mess,jdbcType=VARCHAR},
+      jym = #{jym,jdbcType=VARCHAR},
+      zp = #{zp,jdbcType=LONGVARCHAR}
+    where sfxxdb_id = #{sfxxdbId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="github_demo.demo.entity.ServerSfxxdb">
+    update t_server_sfxxdb
+    set fzmx_id = #{fzmxId,jdbcType=DECIMAL},
+      kscs = #{kscs,jdbcType=INTEGER},
+      lsh = #{lsh,jdbcType=VARCHAR},
+      kskm = #{kskm,jdbcType=VARCHAR},
+      sfzmhm = #{sfzmhm,jdbcType=VARCHAR},
+      ksysfzmhm = #{ksysfzmhm,jdbcType=VARCHAR},
+      kssj = #{kssj,jdbcType=TIMESTAMP},
+      sendzt = #{sendzt,jdbcType=VARCHAR},
+      ksxtbh = #{ksxtbh,jdbcType=VARCHAR},
+      mess = #{mess,jdbcType=VARCHAR},
+      jym = #{jym,jdbcType=VARCHAR}
+    where sfxxdb_id = #{sfxxdbId,jdbcType=DECIMAL}
+  </update>
+</mapper>

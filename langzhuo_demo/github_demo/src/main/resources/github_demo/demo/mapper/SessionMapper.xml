@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="github_demo.demo.dao.SessionMapper">
+  <resultMap id="BaseResultMap" type="github_demo.demo.entity.Session">
+    <id column="uid" jdbcType="VARCHAR" property="uid" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="czsj" jdbcType="TIMESTAMP" property="czsj" />
+    <result column="fwqsy" jdbcType="VARCHAR" property="fwqsy" />
+    <result column="fwqgy" jdbcType="VARCHAR" property="fwqgy" />
+    <result column="khdgy" jdbcType="VARCHAR" property="khdgy" />
+    <result column="desys" jdbcType="VARCHAR" property="desys" />
+    <result column="jmbs" jdbcType="VARCHAR" property="jmbs" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    uid, ip, czsj, fwqsy, fwqgy, khdgy, desys, jmbs
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_session
+    where uid = #{uid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from m_session
+    where uid = #{uid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="github_demo.demo.entity.Session">
+    insert into m_session (uid, ip, czsj, 
+      fwqsy, fwqgy, khdgy, 
+      desys, jmbs)
+    values (#{uid,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, #{czsj,jdbcType=TIMESTAMP}, 
+      #{fwqsy,jdbcType=VARCHAR}, #{fwqgy,jdbcType=VARCHAR}, #{khdgy,jdbcType=VARCHAR}, 
+      #{desys,jdbcType=VARCHAR}, #{jmbs,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="github_demo.demo.entity.Session">
+    insert into m_session
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="ip != null">
+        ip,
+      </if>
+      <if test="czsj != null">
+        czsj,
+      </if>
+      <if test="fwqsy != null">
+        fwqsy,
+      </if>
+      <if test="fwqgy != null">
+        fwqgy,
+      </if>
+      <if test="khdgy != null">
+        khdgy,
+      </if>
+      <if test="desys != null">
+        desys,
+      </if>
+      <if test="jmbs != null">
+        jmbs,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uid != null">
+        #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="czsj != null">
+        #{czsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fwqsy != null">
+        #{fwqsy,jdbcType=VARCHAR},
+      </if>
+      <if test="fwqgy != null">
+        #{fwqgy,jdbcType=VARCHAR},
+      </if>
+      <if test="khdgy != null">
+        #{khdgy,jdbcType=VARCHAR},
+      </if>
+      <if test="desys != null">
+        #{desys,jdbcType=VARCHAR},
+      </if>
+      <if test="jmbs != null">
+        #{jmbs,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="github_demo.demo.entity.Session">
+    update m_session
+    <set>
+      <if test="ip != null">
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="czsj != null">
+        czsj = #{czsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fwqsy != null">
+        fwqsy = #{fwqsy,jdbcType=VARCHAR},
+      </if>
+      <if test="fwqgy != null">
+        fwqgy = #{fwqgy,jdbcType=VARCHAR},
+      </if>
+      <if test="khdgy != null">
+        khdgy = #{khdgy,jdbcType=VARCHAR},
+      </if>
+      <if test="desys != null">
+        desys = #{desys,jdbcType=VARCHAR},
+      </if>
+      <if test="jmbs != null">
+        jmbs = #{jmbs,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where uid = #{uid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="github_demo.demo.entity.Session">
+    update m_session
+    set ip = #{ip,jdbcType=VARCHAR},
+      czsj = #{czsj,jdbcType=TIMESTAMP},
+      fwqsy = #{fwqsy,jdbcType=VARCHAR},
+      fwqgy = #{fwqgy,jdbcType=VARCHAR},
+      khdgy = #{khdgy,jdbcType=VARCHAR},
+      desys = #{desys,jdbcType=VARCHAR},
+      jmbs = #{jmbs,jdbcType=VARCHAR}
+    where uid = #{uid,jdbcType=VARCHAR}
+  </update>
+</mapper>

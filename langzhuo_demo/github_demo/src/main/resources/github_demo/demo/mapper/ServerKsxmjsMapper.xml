@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="github_demo.demo.dao.ServerKsxmjsMapper">
+  <resultMap id="BaseResultMap" type="github_demo.demo.entity.ServerKsxmjs">
+    <id column="xmjs_id" jdbcType="DECIMAL" property="xmjsId" />
+    <result column="fzmx_id" jdbcType="DECIMAL" property="fzmxId" />
+    <result column="kscs" jdbcType="INTEGER" property="kscs" />
+    <result column="lsh" jdbcType="VARCHAR" property="lsh" />
+    <result column="sfzmhm" jdbcType="VARCHAR" property="sfzmhm" />
+    <result column="ksxm" jdbcType="VARCHAR" property="ksxm" />
+    <result column="sbxh" jdbcType="VARCHAR" property="sbxh" />
+    <result column="jssj" jdbcType="TIMESTAMP" property="jssj" />
+    <result column="sendzt" jdbcType="VARCHAR" property="sendzt" />
+    <result column="mess" jdbcType="VARCHAR" property="mess" />
+    <result column="jym" jdbcType="VARCHAR" property="jym" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    xmjs_id, fzmx_id, kscs, lsh, sfzmhm, ksxm, sbxh, jssj, sendzt, mess, jym
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_server_ksxmjs
+    where xmjs_id = #{xmjsId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_server_ksxmjs
+    where xmjs_id = #{xmjsId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="github_demo.demo.entity.ServerKsxmjs">
+    insert into t_server_ksxmjs (xmjs_id, fzmx_id, kscs, 
+      lsh, sfzmhm, ksxm, 
+      sbxh, jssj, sendzt, 
+      mess, jym)
+    values (#{xmjsId,jdbcType=DECIMAL}, #{fzmxId,jdbcType=DECIMAL}, #{kscs,jdbcType=INTEGER}, 
+      #{lsh,jdbcType=VARCHAR}, #{sfzmhm,jdbcType=VARCHAR}, #{ksxm,jdbcType=VARCHAR}, 
+      #{sbxh,jdbcType=VARCHAR}, #{jssj,jdbcType=TIMESTAMP}, #{sendzt,jdbcType=VARCHAR}, 
+      #{mess,jdbcType=VARCHAR}, #{jym,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="github_demo.demo.entity.ServerKsxmjs">
+    insert into t_server_ksxmjs
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="xmjsId != null">
+        xmjs_id,
+      </if>
+      <if test="fzmxId != null">
+        fzmx_id,
+      </if>
+      <if test="kscs != null">
+        kscs,
+      </if>
+      <if test="lsh != null">
+        lsh,
+      </if>
+      <if test="sfzmhm != null">
+        sfzmhm,
+      </if>
+      <if test="ksxm != null">
+        ksxm,
+      </if>
+      <if test="sbxh != null">
+        sbxh,
+      </if>
+      <if test="jssj != null">
+        jssj,
+      </if>
+      <if test="sendzt != null">
+        sendzt,
+      </if>
+      <if test="mess != null">
+        mess,
+      </if>
+      <if test="jym != null">
+        jym,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="xmjsId != null">
+        #{xmjsId,jdbcType=DECIMAL},
+      </if>
+      <if test="fzmxId != null">
+        #{fzmxId,jdbcType=DECIMAL},
+      </if>
+      <if test="kscs != null">
+        #{kscs,jdbcType=INTEGER},
+      </if>
+      <if test="lsh != null">
+        #{lsh,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzmhm != null">
+        #{sfzmhm,jdbcType=VARCHAR},
+      </if>
+      <if test="ksxm != null">
+        #{ksxm,jdbcType=VARCHAR},
+      </if>
+      <if test="sbxh != null">
+        #{sbxh,jdbcType=VARCHAR},
+      </if>
+      <if test="jssj != null">
+        #{jssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendzt != null">
+        #{sendzt,jdbcType=VARCHAR},
+      </if>
+      <if test="mess != null">
+        #{mess,jdbcType=VARCHAR},
+      </if>
+      <if test="jym != null">
+        #{jym,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="github_demo.demo.entity.ServerKsxmjs">
+    update t_server_ksxmjs
+    <set>
+      <if test="fzmxId != null">
+        fzmx_id = #{fzmxId,jdbcType=DECIMAL},
+      </if>
+      <if test="kscs != null">
+        kscs = #{kscs,jdbcType=INTEGER},
+      </if>
+      <if test="lsh != null">
+        lsh = #{lsh,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzmhm != null">
+        sfzmhm = #{sfzmhm,jdbcType=VARCHAR},
+      </if>
+      <if test="ksxm != null">
+        ksxm = #{ksxm,jdbcType=VARCHAR},
+      </if>
+      <if test="sbxh != null">
+        sbxh = #{sbxh,jdbcType=VARCHAR},
+      </if>
+      <if test="jssj != null">
+        jssj = #{jssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendzt != null">
+        sendzt = #{sendzt,jdbcType=VARCHAR},
+      </if>
+      <if test="mess != null">
+        mess = #{mess,jdbcType=VARCHAR},
+      </if>
+      <if test="jym != null">
+        jym = #{jym,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where xmjs_id = #{xmjsId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="github_demo.demo.entity.ServerKsxmjs">
+    update t_server_ksxmjs
+    set fzmx_id = #{fzmxId,jdbcType=DECIMAL},
+      kscs = #{kscs,jdbcType=INTEGER},
+      lsh = #{lsh,jdbcType=VARCHAR},
+      sfzmhm = #{sfzmhm,jdbcType=VARCHAR},
+      ksxm = #{ksxm,jdbcType=VARCHAR},
+      sbxh = #{sbxh,jdbcType=VARCHAR},
+      jssj = #{jssj,jdbcType=TIMESTAMP},
+      sendzt = #{sendzt,jdbcType=VARCHAR},
+      mess = #{mess,jdbcType=VARCHAR},
+      jym = #{jym,jdbcType=VARCHAR}
+    where xmjs_id = #{xmjsId,jdbcType=DECIMAL}
+  </update>
+</mapper>

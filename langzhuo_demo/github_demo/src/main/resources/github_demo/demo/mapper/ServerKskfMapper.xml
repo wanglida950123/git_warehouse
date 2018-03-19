@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="github_demo.demo.dao.ServerKskfMapper">
+  <resultMap id="BaseResultMap" type="github_demo.demo.entity.ServerKskf">
+    <id column="kskf_id" jdbcType="DECIMAL" property="kskfId" />
+    <result column="fzmx_id" jdbcType="DECIMAL" property="fzmxId" />
+    <result column="kscs" jdbcType="INTEGER" property="kscs" />
+    <result column="lsh" jdbcType="VARCHAR" property="lsh" />
+    <result column="sfzmhm" jdbcType="VARCHAR" property="sfzmhm" />
+    <result column="ksxm" jdbcType="VARCHAR" property="ksxm" />
+    <result column="kfxm" jdbcType="VARCHAR" property="kfxm" />
+    <result column="kfsj" jdbcType="TIMESTAMP" property="kfsj" />
+    <result column="kflx" jdbcType="VARCHAR" property="kflx" />
+    <result column="ms" jdbcType="VARCHAR" property="ms" />
+    <result column="sendzt" jdbcType="VARCHAR" property="sendzt" />
+    <result column="mess" jdbcType="VARCHAR" property="mess" />
+    <result column="jym" jdbcType="VARCHAR" property="jym" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    kskf_id, fzmx_id, kscs, lsh, sfzmhm, ksxm, kfxm, kfsj, kflx, ms, sendzt, mess, jym
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_server_kskf
+    where kskf_id = #{kskfId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_server_kskf
+    where kskf_id = #{kskfId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="github_demo.demo.entity.ServerKskf">
+    insert into t_server_kskf (kskf_id, fzmx_id, kscs, 
+      lsh, sfzmhm, ksxm, 
+      kfxm, kfsj, kflx, 
+      ms, sendzt, mess, jym
+      )
+    values (#{kskfId,jdbcType=DECIMAL}, #{fzmxId,jdbcType=DECIMAL}, #{kscs,jdbcType=INTEGER}, 
+      #{lsh,jdbcType=VARCHAR}, #{sfzmhm,jdbcType=VARCHAR}, #{ksxm,jdbcType=VARCHAR}, 
+      #{kfxm,jdbcType=VARCHAR}, #{kfsj,jdbcType=TIMESTAMP}, #{kflx,jdbcType=VARCHAR}, 
+      #{ms,jdbcType=VARCHAR}, #{sendzt,jdbcType=VARCHAR}, #{mess,jdbcType=VARCHAR}, #{jym,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="github_demo.demo.entity.ServerKskf">
+    insert into t_server_kskf
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="kskfId != null">
+        kskf_id,
+      </if>
+      <if test="fzmxId != null">
+        fzmx_id,
+      </if>
+      <if test="kscs != null">
+        kscs,
+      </if>
+      <if test="lsh != null">
+        lsh,
+      </if>
+      <if test="sfzmhm != null">
+        sfzmhm,
+      </if>
+      <if test="ksxm != null">
+        ksxm,
+      </if>
+      <if test="kfxm != null">
+        kfxm,
+      </if>
+      <if test="kfsj != null">
+        kfsj,
+      </if>
+      <if test="kflx != null">
+        kflx,
+      </if>
+      <if test="ms != null">
+        ms,
+      </if>
+      <if test="sendzt != null">
+        sendzt,
+      </if>
+      <if test="mess != null">
+        mess,
+      </if>
+      <if test="jym != null">
+        jym,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="kskfId != null">
+        #{kskfId,jdbcType=DECIMAL},
+      </if>
+      <if test="fzmxId != null">
+        #{fzmxId,jdbcType=DECIMAL},
+      </if>
+      <if test="kscs != null">
+        #{kscs,jdbcType=INTEGER},
+      </if>
+      <if test="lsh != null">
+        #{lsh,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzmhm != null">
+        #{sfzmhm,jdbcType=VARCHAR},
+      </if>
+      <if test="ksxm != null">
+        #{ksxm,jdbcType=VARCHAR},
+      </if>
+      <if test="kfxm != null">
+        #{kfxm,jdbcType=VARCHAR},
+      </if>
+      <if test="kfsj != null">
+        #{kfsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="kflx != null">
+        #{kflx,jdbcType=VARCHAR},
+      </if>
+      <if test="ms != null">
+        #{ms,jdbcType=VARCHAR},
+      </if>
+      <if test="sendzt != null">
+        #{sendzt,jdbcType=VARCHAR},
+      </if>
+      <if test="mess != null">
+        #{mess,jdbcType=VARCHAR},
+      </if>
+      <if test="jym != null">
+        #{jym,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="github_demo.demo.entity.ServerKskf">
+    update t_server_kskf
+    <set>
+      <if test="fzmxId != null">
+        fzmx_id = #{fzmxId,jdbcType=DECIMAL},
+      </if>
+      <if test="kscs != null">
+        kscs = #{kscs,jdbcType=INTEGER},
+      </if>
+      <if test="lsh != null">
+        lsh = #{lsh,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzmhm != null">
+        sfzmhm = #{sfzmhm,jdbcType=VARCHAR},
+      </if>
+      <if test="ksxm != null">
+        ksxm = #{ksxm,jdbcType=VARCHAR},
+      </if>
+      <if test="kfxm != null">
+        kfxm = #{kfxm,jdbcType=VARCHAR},
+      </if>
+      <if test="kfsj != null">
+        kfsj = #{kfsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="kflx != null">
+        kflx = #{kflx,jdbcType=VARCHAR},
+      </if>
+      <if test="ms != null">
+        ms = #{ms,jdbcType=VARCHAR},
+      </if>
+      <if test="sendzt != null">
+        sendzt = #{sendzt,jdbcType=VARCHAR},
+      </if>
+      <if test="mess != null">
+        mess = #{mess,jdbcType=VARCHAR},
+      </if>
+      <if test="jym != null">
+        jym = #{jym,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where kskf_id = #{kskfId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="github_demo.demo.entity.ServerKskf">
+    update t_server_kskf
+    set fzmx_id = #{fzmxId,jdbcType=DECIMAL},
+      kscs = #{kscs,jdbcType=INTEGER},
+      lsh = #{lsh,jdbcType=VARCHAR},
+      sfzmhm = #{sfzmhm,jdbcType=VARCHAR},
+      ksxm = #{ksxm,jdbcType=VARCHAR},
+      kfxm = #{kfxm,jdbcType=VARCHAR},
+      kfsj = #{kfsj,jdbcType=TIMESTAMP},
+      kflx = #{kflx,jdbcType=VARCHAR},
+      ms = #{ms,jdbcType=VARCHAR},
+      sendzt = #{sendzt,jdbcType=VARCHAR},
+      mess = #{mess,jdbcType=VARCHAR},
+      jym = #{jym,jdbcType=VARCHAR}
+    where kskf_id = #{kskfId,jdbcType=DECIMAL}
+  </update>
+</mapper>

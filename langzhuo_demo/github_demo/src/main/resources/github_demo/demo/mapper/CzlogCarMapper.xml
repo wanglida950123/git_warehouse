@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="github_demo.demo.dao.CzlogCarMapper">
+  <resultMap id="BaseResultMap" type="github_demo.demo.entity.CzlogCar">
+    <id column="id" jdbcType="DECIMAL" property="id" />
+    <result column="clxh" jdbcType="VARCHAR" property="clxh" />
+    <result column="rqsj" jdbcType="TIMESTAMP" property="rqsj" />
+    <result column="c_name" jdbcType="VARCHAR" property="cName" />
+    <result column="c_act" jdbcType="VARCHAR" property="cAct" />
+    <result column="fzmx_id" jdbcType="DECIMAL" property="fzmxId" />
+    <result column="kscs" jdbcType="INTEGER" property="kscs" />
+    <result column="lsh" jdbcType="VARCHAR" property="lsh" />
+    <result column="sfzmhm" jdbcType="VARCHAR" property="sfzmhm" />
+    <result column="ksxm" jdbcType="VARCHAR" property="ksxm" />
+    <result column="mess" jdbcType="VARCHAR" property="mess" />
+    <result column="c_ip" jdbcType="VARCHAR" property="cIp" />
+    <result column="c_sql" jdbcType="VARCHAR" property="cSql" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, clxh, rqsj, c_name, c_act, fzmx_id, kscs, lsh, sfzmhm, ksxm, mess, c_ip, c_sql
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_czlog_car
+    where id = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from m_czlog_car
+    where id = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="github_demo.demo.entity.CzlogCar">
+    insert into m_czlog_car (id, clxh, rqsj, 
+      c_name, c_act, fzmx_id, 
+      kscs, lsh, sfzmhm, 
+      ksxm, mess, c_ip, c_sql
+      )
+    values (#{id,jdbcType=DECIMAL}, #{clxh,jdbcType=VARCHAR}, #{rqsj,jdbcType=TIMESTAMP}, 
+      #{cName,jdbcType=VARCHAR}, #{cAct,jdbcType=VARCHAR}, #{fzmxId,jdbcType=DECIMAL}, 
+      #{kscs,jdbcType=INTEGER}, #{lsh,jdbcType=VARCHAR}, #{sfzmhm,jdbcType=VARCHAR}, 
+      #{ksxm,jdbcType=VARCHAR}, #{mess,jdbcType=VARCHAR}, #{cIp,jdbcType=VARCHAR}, #{cSql,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="github_demo.demo.entity.CzlogCar">
+    insert into m_czlog_car
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="clxh != null">
+        clxh,
+      </if>
+      <if test="rqsj != null">
+        rqsj,
+      </if>
+      <if test="cName != null">
+        c_name,
+      </if>
+      <if test="cAct != null">
+        c_act,
+      </if>
+      <if test="fzmxId != null">
+        fzmx_id,
+      </if>
+      <if test="kscs != null">
+        kscs,
+      </if>
+      <if test="lsh != null">
+        lsh,
+      </if>
+      <if test="sfzmhm != null">
+        sfzmhm,
+      </if>
+      <if test="ksxm != null">
+        ksxm,
+      </if>
+      <if test="mess != null">
+        mess,
+      </if>
+      <if test="cIp != null">
+        c_ip,
+      </if>
+      <if test="cSql != null">
+        c_sql,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="clxh != null">
+        #{clxh,jdbcType=VARCHAR},
+      </if>
+      <if test="rqsj != null">
+        #{rqsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cName != null">
+        #{cName,jdbcType=VARCHAR},
+      </if>
+      <if test="cAct != null">
+        #{cAct,jdbcType=VARCHAR},
+      </if>
+      <if test="fzmxId != null">
+        #{fzmxId,jdbcType=DECIMAL},
+      </if>
+      <if test="kscs != null">
+        #{kscs,jdbcType=INTEGER},
+      </if>
+      <if test="lsh != null">
+        #{lsh,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzmhm != null">
+        #{sfzmhm,jdbcType=VARCHAR},
+      </if>
+      <if test="ksxm != null">
+        #{ksxm,jdbcType=VARCHAR},
+      </if>
+      <if test="mess != null">
+        #{mess,jdbcType=VARCHAR},
+      </if>
+      <if test="cIp != null">
+        #{cIp,jdbcType=VARCHAR},
+      </if>
+      <if test="cSql != null">
+        #{cSql,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="github_demo.demo.entity.CzlogCar">
+    update m_czlog_car
+    <set>
+      <if test="clxh != null">
+        clxh = #{clxh,jdbcType=VARCHAR},
+      </if>
+      <if test="rqsj != null">
+        rqsj = #{rqsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cName != null">
+        c_name = #{cName,jdbcType=VARCHAR},
+      </if>
+      <if test="cAct != null">
+        c_act = #{cAct,jdbcType=VARCHAR},
+      </if>
+      <if test="fzmxId != null">
+        fzmx_id = #{fzmxId,jdbcType=DECIMAL},
+      </if>
+      <if test="kscs != null">
+        kscs = #{kscs,jdbcType=INTEGER},
+      </if>
+      <if test="lsh != null">
+        lsh = #{lsh,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzmhm != null">
+        sfzmhm = #{sfzmhm,jdbcType=VARCHAR},
+      </if>
+      <if test="ksxm != null">
+        ksxm = #{ksxm,jdbcType=VARCHAR},
+      </if>
+      <if test="mess != null">
+        mess = #{mess,jdbcType=VARCHAR},
+      </if>
+      <if test="cIp != null">
+        c_ip = #{cIp,jdbcType=VARCHAR},
+      </if>
+      <if test="cSql != null">
+        c_sql = #{cSql,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="github_demo.demo.entity.CzlogCar">
+    update m_czlog_car
+    set clxh = #{clxh,jdbcType=VARCHAR},
+      rqsj = #{rqsj,jdbcType=TIMESTAMP},
+      c_name = #{cName,jdbcType=VARCHAR},
+      c_act = #{cAct,jdbcType=VARCHAR},
+      fzmx_id = #{fzmxId,jdbcType=DECIMAL},
+      kscs = #{kscs,jdbcType=INTEGER},
+      lsh = #{lsh,jdbcType=VARCHAR},
+      sfzmhm = #{sfzmhm,jdbcType=VARCHAR},
+      ksxm = #{ksxm,jdbcType=VARCHAR},
+      mess = #{mess,jdbcType=VARCHAR},
+      c_ip = #{cIp,jdbcType=VARCHAR},
+      c_sql = #{cSql,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>

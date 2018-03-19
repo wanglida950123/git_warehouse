@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="github_demo.demo.dao.DownKfdmMapper">
+  <resultMap id="BaseResultMap" type="github_demo.demo.entity.DownKfdm">
+    <id column="kfdm" jdbcType="VARCHAR" property="kfdm" />
+    <result column="kfxm" jdbcType="VARCHAR" property="kfxm" />
+    <result column="kfz" jdbcType="INTEGER" property="kfz" />
+    <result column="sm" jdbcType="VARCHAR" property="sm" />
+    <result column="jym" jdbcType="VARCHAR" property="jym" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    kfdm, kfxm, kfz, sm, jym
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_down_kfdm
+    where kfdm = #{kfdm,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_down_kfdm
+    where kfdm = #{kfdm,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="github_demo.demo.entity.DownKfdm">
+    insert into t_down_kfdm (kfdm, kfxm, kfz, 
+      sm, jym)
+    values (#{kfdm,jdbcType=VARCHAR}, #{kfxm,jdbcType=VARCHAR}, #{kfz,jdbcType=INTEGER}, 
+      #{sm,jdbcType=VARCHAR}, #{jym,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="github_demo.demo.entity.DownKfdm">
+    insert into t_down_kfdm
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="kfdm != null">
+        kfdm,
+      </if>
+      <if test="kfxm != null">
+        kfxm,
+      </if>
+      <if test="kfz != null">
+        kfz,
+      </if>
+      <if test="sm != null">
+        sm,
+      </if>
+      <if test="jym != null">
+        jym,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="kfdm != null">
+        #{kfdm,jdbcType=VARCHAR},
+      </if>
+      <if test="kfxm != null">
+        #{kfxm,jdbcType=VARCHAR},
+      </if>
+      <if test="kfz != null">
+        #{kfz,jdbcType=INTEGER},
+      </if>
+      <if test="sm != null">
+        #{sm,jdbcType=VARCHAR},
+      </if>
+      <if test="jym != null">
+        #{jym,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="github_demo.demo.entity.DownKfdm">
+    update t_down_kfdm
+    <set>
+      <if test="kfxm != null">
+        kfxm = #{kfxm,jdbcType=VARCHAR},
+      </if>
+      <if test="kfz != null">
+        kfz = #{kfz,jdbcType=INTEGER},
+      </if>
+      <if test="sm != null">
+        sm = #{sm,jdbcType=VARCHAR},
+      </if>
+      <if test="jym != null">
+        jym = #{jym,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where kfdm = #{kfdm,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="github_demo.demo.entity.DownKfdm">
+    update t_down_kfdm
+    set kfxm = #{kfxm,jdbcType=VARCHAR},
+      kfz = #{kfz,jdbcType=INTEGER},
+      sm = #{sm,jdbcType=VARCHAR},
+      jym = #{jym,jdbcType=VARCHAR}
+    where kfdm = #{kfdm,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="github_demo.demo.dao.SysdownKsybaMapper">
+  <resultMap id="BaseResultMap" type="github_demo.demo.entity.SysdownKsyba">
+    <id column="xh" jdbcType="VARCHAR" property="xh" />
+    <result column="ssfzjg" jdbcType="VARCHAR" property="ssfzjg" />
+    <result column="glbm" jdbcType="VARCHAR" property="glbm" />
+    <result column="sfzmmc" jdbcType="VARCHAR" property="sfzmmc" />
+    <result column="sfzmhm" jdbcType="VARCHAR" property="sfzmhm" />
+    <result column="dabh" jdbcType="VARCHAR" property="dabh" />
+    <result column="xm" jdbcType="VARCHAR" property="xm" />
+    <result column="xb" jdbcType="VARCHAR" property="xb" />
+    <result column="csrq" jdbcType="TIMESTAMP" property="csrq" />
+    <result column="kszjcx" jdbcType="VARCHAR" property="kszjcx" />
+    <result column="ksfzrq" jdbcType="TIMESTAMP" property="ksfzrq" />
+    <result column="kszyxqz" jdbcType="TIMESTAMP" property="kszyxqz" />
+    <result column="zt" jdbcType="VARCHAR" property="zt" />
+    <result column="gzdw" jdbcType="VARCHAR" property="gzdw" />
+    <result column="jbr" jdbcType="VARCHAR" property="jbr" />
+    <result column="fzdw" jdbcType="VARCHAR" property="fzdw" />
+    <result column="cjsj" jdbcType="TIMESTAMP" property="cjsj" />
+    <result column="gxsj" jdbcType="TIMESTAMP" property="gxsj" />
+    <result column="jym" jdbcType="VARCHAR" property="jym" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    xh, ssfzjg, glbm, sfzmmc, sfzmhm, dabh, xm, xb, csrq, kszjcx, ksfzrq, kszyxqz, zt, 
+    gzdw, jbr, fzdw, cjsj, gxsj, jym
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_sysdown_ksyba
+    where xh = #{xh,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_sysdown_ksyba
+    where xh = #{xh,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="github_demo.demo.entity.SysdownKsyba">
+    insert into t_sysdown_ksyba (xh, ssfzjg, glbm, 
+      sfzmmc, sfzmhm, dabh, 
+      xm, xb, csrq, kszjcx, 
+      ksfzrq, kszyxqz, zt, 
+      gzdw, jbr, fzdw, cjsj, 
+      gxsj, jym)
+    values (#{xh,jdbcType=VARCHAR}, #{ssfzjg,jdbcType=VARCHAR}, #{glbm,jdbcType=VARCHAR}, 
+      #{sfzmmc,jdbcType=VARCHAR}, #{sfzmhm,jdbcType=VARCHAR}, #{dabh,jdbcType=VARCHAR}, 
+      #{xm,jdbcType=VARCHAR}, #{xb,jdbcType=VARCHAR}, #{csrq,jdbcType=TIMESTAMP}, #{kszjcx,jdbcType=VARCHAR}, 
+      #{ksfzrq,jdbcType=TIMESTAMP}, #{kszyxqz,jdbcType=TIMESTAMP}, #{zt,jdbcType=VARCHAR}, 
+      #{gzdw,jdbcType=VARCHAR}, #{jbr,jdbcType=VARCHAR}, #{fzdw,jdbcType=VARCHAR}, #{cjsj,jdbcType=TIMESTAMP}, 
+      #{gxsj,jdbcType=TIMESTAMP}, #{jym,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="github_demo.demo.entity.SysdownKsyba">
+    insert into t_sysdown_ksyba
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="xh != null">
+        xh,
+      </if>
+      <if test="ssfzjg != null">
+        ssfzjg,
+      </if>
+      <if test="glbm != null">
+        glbm,
+      </if>
+      <if test="sfzmmc != null">
+        sfzmmc,
+      </if>
+      <if test="sfzmhm != null">
+        sfzmhm,
+      </if>
+      <if test="dabh != null">
+        dabh,
+      </if>
+      <if test="xm != null">
+        xm,
+      </if>
+      <if test="xb != null">
+        xb,
+      </if>
+      <if test="csrq != null">
+        csrq,
+      </if>
+      <if test="kszjcx != null">
+        kszjcx,
+      </if>
+      <if test="ksfzrq != null">
+        ksfzrq,
+      </if>
+      <if test="kszyxqz != null">
+        kszyxqz,
+      </if>
+      <if test="zt != null">
+        zt,
+      </if>
+      <if test="gzdw != null">
+        gzdw,
+      </if>
+      <if test="jbr != null">
+        jbr,
+      </if>
+      <if test="fzdw != null">
+        fzdw,
+      </if>
+      <if test="cjsj != null">
+        cjsj,
+      </if>
+      <if test="gxsj != null">
+        gxsj,
+      </if>
+      <if test="jym != null">
+        jym,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="xh != null">
+        #{xh,jdbcType=VARCHAR},
+      </if>
+      <if test="ssfzjg != null">
+        #{ssfzjg,jdbcType=VARCHAR},
+      </if>
+      <if test="glbm != null">
+        #{glbm,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzmmc != null">
+        #{sfzmmc,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzmhm != null">
+        #{sfzmhm,jdbcType=VARCHAR},
+      </if>
+      <if test="dabh != null">
+        #{dabh,jdbcType=VARCHAR},
+      </if>
+      <if test="xm != null">
+        #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="xb != null">
+        #{xb,jdbcType=VARCHAR},
+      </if>
+      <if test="csrq != null">
+        #{csrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="kszjcx != null">
+        #{kszjcx,jdbcType=VARCHAR},
+      </if>
+      <if test="ksfzrq != null">
+        #{ksfzrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="kszyxqz != null">
+        #{kszyxqz,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zt != null">
+        #{zt,jdbcType=VARCHAR},
+      </if>
+      <if test="gzdw != null">
+        #{gzdw,jdbcType=VARCHAR},
+      </if>
+      <if test="jbr != null">
+        #{jbr,jdbcType=VARCHAR},
+      </if>
+      <if test="fzdw != null">
+        #{fzdw,jdbcType=VARCHAR},
+      </if>
+      <if test="cjsj != null">
+        #{cjsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gxsj != null">
+        #{gxsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jym != null">
+        #{jym,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="github_demo.demo.entity.SysdownKsyba">
+    update t_sysdown_ksyba
+    <set>
+      <if test="ssfzjg != null">
+        ssfzjg = #{ssfzjg,jdbcType=VARCHAR},
+      </if>
+      <if test="glbm != null">
+        glbm = #{glbm,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzmmc != null">
+        sfzmmc = #{sfzmmc,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzmhm != null">
+        sfzmhm = #{sfzmhm,jdbcType=VARCHAR},
+      </if>
+      <if test="dabh != null">
+        dabh = #{dabh,jdbcType=VARCHAR},
+      </if>
+      <if test="xm != null">
+        xm = #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="xb != null">
+        xb = #{xb,jdbcType=VARCHAR},
+      </if>
+      <if test="csrq != null">
+        csrq = #{csrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="kszjcx != null">
+        kszjcx = #{kszjcx,jdbcType=VARCHAR},
+      </if>
+      <if test="ksfzrq != null">
+        ksfzrq = #{ksfzrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="kszyxqz != null">
+        kszyxqz = #{kszyxqz,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zt != null">
+        zt = #{zt,jdbcType=VARCHAR},
+      </if>
+      <if test="gzdw != null">
+        gzdw = #{gzdw,jdbcType=VARCHAR},
+      </if>
+      <if test="jbr != null">
+        jbr = #{jbr,jdbcType=VARCHAR},
+      </if>
+      <if test="fzdw != null">
+        fzdw = #{fzdw,jdbcType=VARCHAR},
+      </if>
+      <if test="cjsj != null">
+        cjsj = #{cjsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gxsj != null">
+        gxsj = #{gxsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jym != null">
+        jym = #{jym,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where xh = #{xh,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="github_demo.demo.entity.SysdownKsyba">
+    update t_sysdown_ksyba
+    set ssfzjg = #{ssfzjg,jdbcType=VARCHAR},
+      glbm = #{glbm,jdbcType=VARCHAR},
+      sfzmmc = #{sfzmmc,jdbcType=VARCHAR},
+      sfzmhm = #{sfzmhm,jdbcType=VARCHAR},
+      dabh = #{dabh,jdbcType=VARCHAR},
+      xm = #{xm,jdbcType=VARCHAR},
+      xb = #{xb,jdbcType=VARCHAR},
+      csrq = #{csrq,jdbcType=TIMESTAMP},
+      kszjcx = #{kszjcx,jdbcType=VARCHAR},
+      ksfzrq = #{ksfzrq,jdbcType=TIMESTAMP},
+      kszyxqz = #{kszyxqz,jdbcType=TIMESTAMP},
+      zt = #{zt,jdbcType=VARCHAR},
+      gzdw = #{gzdw,jdbcType=VARCHAR},
+      jbr = #{jbr,jdbcType=VARCHAR},
+      fzdw = #{fzdw,jdbcType=VARCHAR},
+      cjsj = #{cjsj,jdbcType=TIMESTAMP},
+      gxsj = #{gxsj,jdbcType=TIMESTAMP},
+      jym = #{jym,jdbcType=VARCHAR}
+    where xh = #{xh,jdbcType=VARCHAR}
+  </update>
+</mapper>

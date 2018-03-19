@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="github_demo.demo.dao.MonitorlogMapper">
+  <resultMap id="BaseResultMap" type="github_demo.demo.entity.Monitorlog">
+    <id column="id" jdbcType="DECIMAL" property="id" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="table_code" jdbcType="VARCHAR" property="tableCode" />
+    <result column="table_name" jdbcType="VARCHAR" property="tableName" />
+    <result column="rownum" jdbcType="BIGINT" property="rownum" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="jym" jdbcType="VARCHAR" property="jym" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, create_date, table_code, table_name, rownum, remark, jym
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_monitorlog
+    where id = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from m_monitorlog
+    where id = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="github_demo.demo.entity.Monitorlog">
+    insert into m_monitorlog (id, create_date, table_code, 
+      table_name, rownum, remark, 
+      jym)
+    values (#{id,jdbcType=DECIMAL}, #{createDate,jdbcType=TIMESTAMP}, #{tableCode,jdbcType=VARCHAR}, 
+      #{tableName,jdbcType=VARCHAR}, #{rownum,jdbcType=BIGINT}, #{remark,jdbcType=VARCHAR}, 
+      #{jym,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="github_demo.demo.entity.Monitorlog">
+    insert into m_monitorlog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="tableCode != null">
+        table_code,
+      </if>
+      <if test="tableName != null">
+        table_name,
+      </if>
+      <if test="rownum != null">
+        rownum,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="jym != null">
+        jym,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tableCode != null">
+        #{tableCode,jdbcType=VARCHAR},
+      </if>
+      <if test="tableName != null">
+        #{tableName,jdbcType=VARCHAR},
+      </if>
+      <if test="rownum != null">
+        #{rownum,jdbcType=BIGINT},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="jym != null">
+        #{jym,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="github_demo.demo.entity.Monitorlog">
+    update m_monitorlog
+    <set>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tableCode != null">
+        table_code = #{tableCode,jdbcType=VARCHAR},
+      </if>
+      <if test="tableName != null">
+        table_name = #{tableName,jdbcType=VARCHAR},
+      </if>
+      <if test="rownum != null">
+        rownum = #{rownum,jdbcType=BIGINT},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="jym != null">
+        jym = #{jym,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="github_demo.demo.entity.Monitorlog">
+    update m_monitorlog
+    set create_date = #{createDate,jdbcType=TIMESTAMP},
+      table_code = #{tableCode,jdbcType=VARCHAR},
+      table_name = #{tableName,jdbcType=VARCHAR},
+      rownum = #{rownum,jdbcType=BIGINT},
+      remark = #{remark,jdbcType=VARCHAR},
+      jym = #{jym,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>

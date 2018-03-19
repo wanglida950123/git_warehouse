@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="github_demo.demo.dao.SafetylogMapper">
+  <resultMap id="BaseResultMap" type="github_demo.demo.entity.Safetylog">
+    <id column="id" jdbcType="DECIMAL" property="id" />
+    <result column="uid" jdbcType="VARCHAR" property="uid" />
+    <result column="czsj" jdbcType="TIMESTAMP" property="czsj" />
+    <result column="ly" jdbcType="VARCHAR" property="ly" />
+    <result column="xw" jdbcType="VARCHAR" property="xw" />
+    <result column="jg" jdbcType="VARCHAR" property="jg" />
+    <result column="nr" jdbcType="VARCHAR" property="nr" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="jym" jdbcType="VARCHAR" property="jym" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, uid, czsj, ly, xw, jg, nr, ip, jym
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_safetylog
+    where id = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from m_safetylog
+    where id = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="github_demo.demo.entity.Safetylog">
+    insert into m_safetylog (id, uid, czsj, 
+      ly, xw, jg, nr, 
+      ip, jym)
+    values (#{id,jdbcType=DECIMAL}, #{uid,jdbcType=VARCHAR}, #{czsj,jdbcType=TIMESTAMP}, 
+      #{ly,jdbcType=VARCHAR}, #{xw,jdbcType=VARCHAR}, #{jg,jdbcType=VARCHAR}, #{nr,jdbcType=VARCHAR}, 
+      #{ip,jdbcType=VARCHAR}, #{jym,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="github_demo.demo.entity.Safetylog">
+    insert into m_safetylog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="czsj != null">
+        czsj,
+      </if>
+      <if test="ly != null">
+        ly,
+      </if>
+      <if test="xw != null">
+        xw,
+      </if>
+      <if test="jg != null">
+        jg,
+      </if>
+      <if test="nr != null">
+        nr,
+      </if>
+      <if test="ip != null">
+        ip,
+      </if>
+      <if test="jym != null">
+        jym,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="czsj != null">
+        #{czsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ly != null">
+        #{ly,jdbcType=VARCHAR},
+      </if>
+      <if test="xw != null">
+        #{xw,jdbcType=VARCHAR},
+      </if>
+      <if test="jg != null">
+        #{jg,jdbcType=VARCHAR},
+      </if>
+      <if test="nr != null">
+        #{nr,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="jym != null">
+        #{jym,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="github_demo.demo.entity.Safetylog">
+    update m_safetylog
+    <set>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="czsj != null">
+        czsj = #{czsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ly != null">
+        ly = #{ly,jdbcType=VARCHAR},
+      </if>
+      <if test="xw != null">
+        xw = #{xw,jdbcType=VARCHAR},
+      </if>
+      <if test="jg != null">
+        jg = #{jg,jdbcType=VARCHAR},
+      </if>
+      <if test="nr != null">
+        nr = #{nr,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="jym != null">
+        jym = #{jym,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="github_demo.demo.entity.Safetylog">
+    update m_safetylog
+    set uid = #{uid,jdbcType=VARCHAR},
+      czsj = #{czsj,jdbcType=TIMESTAMP},
+      ly = #{ly,jdbcType=VARCHAR},
+      xw = #{xw,jdbcType=VARCHAR},
+      jg = #{jg,jdbcType=VARCHAR},
+      nr = #{nr,jdbcType=VARCHAR},
+      ip = #{ip,jdbcType=VARCHAR},
+      jym = #{jym,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>

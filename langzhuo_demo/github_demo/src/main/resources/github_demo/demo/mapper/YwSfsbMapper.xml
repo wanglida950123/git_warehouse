@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="github_demo.demo.dao.YwSfsbMapper">
+  <resultMap id="BaseResultMap" type="github_demo.demo.entity.YwSfsb">
+    <id column="id" jdbcType="DECIMAL" property="id" />
+    <result column="sjsj" jdbcType="TIMESTAMP" property="sjsj" />
+    <result column="yzsj" jdbcType="TIMESTAMP" property="yzsj" />
+    <result column="fzmxid" jdbcType="DECIMAL" property="fzmxid" />
+    <result column="clxh" jdbcType="VARCHAR" property="clxh" />
+    <result column="kchp" jdbcType="VARCHAR" property="kchp" />
+    <result column="lsh" jdbcType="VARCHAR" property="lsh" />
+    <result column="sfzmhm" jdbcType="VARCHAR" property="sfzmhm" />
+    <result column="xm" jdbcType="VARCHAR" property="xm" />
+    <result column="kscs" jdbcType="INTEGER" property="kscs" />
+    <result column="zt" jdbcType="VARCHAR" property="zt" />
+    <result column="jg" jdbcType="VARCHAR" property="jg" />
+    <result column="czy1" jdbcType="VARCHAR" property="czy1" />
+    <result column="czy2" jdbcType="VARCHAR" property="czy2" />
+    <result column="kcxh" jdbcType="VARCHAR" property="kcxh" />
+    <result column="kscc" jdbcType="NUMERIC" property="kscc" />
+    <result column="sjrs" jdbcType="NUMERIC" property="sjrs" />
+    <result column="sendzt" jdbcType="VARCHAR" property="sendzt" />
+    <result column="mess" jdbcType="VARCHAR" property="mess" />
+    <result column="operate_name" jdbcType="VARCHAR" property="operateName" />
+    <result column="jym" jdbcType="VARCHAR" property="jym" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="github_demo.demo.entity.YwSfsb">
+    <result column="pic" jdbcType="LONGVARCHAR" property="pic" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, sjsj, yzsj, fzmxid, clxh, kchp, lsh, sfzmhm, xm, kscs, zt, jg, czy1, czy2, kcxh, 
+    kscc, sjrs, sendzt, mess, operate_name, jym
+  </sql>
+  <sql id="Blob_Column_List">
+    pic
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_yw_sfsb
+    where id = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_yw_sfsb
+    where id = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="github_demo.demo.entity.YwSfsb">
+    insert into t_yw_sfsb (id, sjsj, yzsj, 
+      fzmxid, clxh, kchp, 
+      lsh, sfzmhm, xm, kscs, 
+      zt, jg, czy1, czy2, 
+      kcxh, kscc, sjrs, sendzt, 
+      mess, operate_name, jym, 
+      pic)
+    values (#{id,jdbcType=DECIMAL}, #{sjsj,jdbcType=TIMESTAMP}, #{yzsj,jdbcType=TIMESTAMP}, 
+      #{fzmxid,jdbcType=DECIMAL}, #{clxh,jdbcType=VARCHAR}, #{kchp,jdbcType=VARCHAR}, 
+      #{lsh,jdbcType=VARCHAR}, #{sfzmhm,jdbcType=VARCHAR}, #{xm,jdbcType=VARCHAR}, #{kscs,jdbcType=INTEGER}, 
+      #{zt,jdbcType=VARCHAR}, #{jg,jdbcType=VARCHAR}, #{czy1,jdbcType=VARCHAR}, #{czy2,jdbcType=VARCHAR}, 
+      #{kcxh,jdbcType=VARCHAR}, #{kscc,jdbcType=NUMERIC}, #{sjrs,jdbcType=NUMERIC}, #{sendzt,jdbcType=VARCHAR}, 
+      #{mess,jdbcType=VARCHAR}, #{operateName,jdbcType=VARCHAR}, #{jym,jdbcType=VARCHAR}, 
+      #{pic,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="github_demo.demo.entity.YwSfsb">
+    insert into t_yw_sfsb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="sjsj != null">
+        sjsj,
+      </if>
+      <if test="yzsj != null">
+        yzsj,
+      </if>
+      <if test="fzmxid != null">
+        fzmxid,
+      </if>
+      <if test="clxh != null">
+        clxh,
+      </if>
+      <if test="kchp != null">
+        kchp,
+      </if>
+      <if test="lsh != null">
+        lsh,
+      </if>
+      <if test="sfzmhm != null">
+        sfzmhm,
+      </if>
+      <if test="xm != null">
+        xm,
+      </if>
+      <if test="kscs != null">
+        kscs,
+      </if>
+      <if test="zt != null">
+        zt,
+      </if>
+      <if test="jg != null">
+        jg,
+      </if>
+      <if test="czy1 != null">
+        czy1,
+      </if>
+      <if test="czy2 != null">
+        czy2,
+      </if>
+      <if test="kcxh != null">
+        kcxh,
+      </if>
+      <if test="kscc != null">
+        kscc,
+      </if>
+      <if test="sjrs != null">
+        sjrs,
+      </if>
+      <if test="sendzt != null">
+        sendzt,
+      </if>
+      <if test="mess != null">
+        mess,
+      </if>
+      <if test="operateName != null">
+        operate_name,
+      </if>
+      <if test="jym != null">
+        jym,
+      </if>
+      <if test="pic != null">
+        pic,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="sjsj != null">
+        #{sjsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="yzsj != null">
+        #{yzsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fzmxid != null">
+        #{fzmxid,jdbcType=DECIMAL},
+      </if>
+      <if test="clxh != null">
+        #{clxh,jdbcType=VARCHAR},
+      </if>
+      <if test="kchp != null">
+        #{kchp,jdbcType=VARCHAR},
+      </if>
+      <if test="lsh != null">
+        #{lsh,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzmhm != null">
+        #{sfzmhm,jdbcType=VARCHAR},
+      </if>
+      <if test="xm != null">
+        #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="kscs != null">
+        #{kscs,jdbcType=INTEGER},
+      </if>
+      <if test="zt != null">
+        #{zt,jdbcType=VARCHAR},
+      </if>
+      <if test="jg != null">
+        #{jg,jdbcType=VARCHAR},
+      </if>
+      <if test="czy1 != null">
+        #{czy1,jdbcType=VARCHAR},
+      </if>
+      <if test="czy2 != null">
+        #{czy2,jdbcType=VARCHAR},
+      </if>
+      <if test="kcxh != null">
+        #{kcxh,jdbcType=VARCHAR},
+      </if>
+      <if test="kscc != null">
+        #{kscc,jdbcType=NUMERIC},
+      </if>
+      <if test="sjrs != null">
+        #{sjrs,jdbcType=NUMERIC},
+      </if>
+      <if test="sendzt != null">
+        #{sendzt,jdbcType=VARCHAR},
+      </if>
+      <if test="mess != null">
+        #{mess,jdbcType=VARCHAR},
+      </if>
+      <if test="operateName != null">
+        #{operateName,jdbcType=VARCHAR},
+      </if>
+      <if test="jym != null">
+        #{jym,jdbcType=VARCHAR},
+      </if>
+      <if test="pic != null">
+        #{pic,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="github_demo.demo.entity.YwSfsb">
+    update t_yw_sfsb
+    <set>
+      <if test="sjsj != null">
+        sjsj = #{sjsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="yzsj != null">
+        yzsj = #{yzsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fzmxid != null">
+        fzmxid = #{fzmxid,jdbcType=DECIMAL},
+      </if>
+      <if test="clxh != null">
+        clxh = #{clxh,jdbcType=VARCHAR},
+      </if>
+      <if test="kchp != null">
+        kchp = #{kchp,jdbcType=VARCHAR},
+      </if>
+      <if test="lsh != null">
+        lsh = #{lsh,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzmhm != null">
+        sfzmhm = #{sfzmhm,jdbcType=VARCHAR},
+      </if>
+      <if test="xm != null">
+        xm = #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="kscs != null">
+        kscs = #{kscs,jdbcType=INTEGER},
+      </if>
+      <if test="zt != null">
+        zt = #{zt,jdbcType=VARCHAR},
+      </if>
+      <if test="jg != null">
+        jg = #{jg,jdbcType=VARCHAR},
+      </if>
+      <if test="czy1 != null">
+        czy1 = #{czy1,jdbcType=VARCHAR},
+      </if>
+      <if test="czy2 != null">
+        czy2 = #{czy2,jdbcType=VARCHAR},
+      </if>
+      <if test="kcxh != null">
+        kcxh = #{kcxh,jdbcType=VARCHAR},
+      </if>
+      <if test="kscc != null">
+        kscc = #{kscc,jdbcType=NUMERIC},
+      </if>
+      <if test="sjrs != null">
+        sjrs = #{sjrs,jdbcType=NUMERIC},
+      </if>
+      <if test="sendzt != null">
+        sendzt = #{sendzt,jdbcType=VARCHAR},
+      </if>
+      <if test="mess != null">
+        mess = #{mess,jdbcType=VARCHAR},
+      </if>
+      <if test="operateName != null">
+        operate_name = #{operateName,jdbcType=VARCHAR},
+      </if>
+      <if test="jym != null">
+        jym = #{jym,jdbcType=VARCHAR},
+      </if>
+      <if test="pic != null">
+        pic = #{pic,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="github_demo.demo.entity.YwSfsb">
+    update t_yw_sfsb
+    set sjsj = #{sjsj,jdbcType=TIMESTAMP},
+      yzsj = #{yzsj,jdbcType=TIMESTAMP},
+      fzmxid = #{fzmxid,jdbcType=DECIMAL},
+      clxh = #{clxh,jdbcType=VARCHAR},
+      kchp = #{kchp,jdbcType=VARCHAR},
+      lsh = #{lsh,jdbcType=VARCHAR},
+      sfzmhm = #{sfzmhm,jdbcType=VARCHAR},
+      xm = #{xm,jdbcType=VARCHAR},
+      kscs = #{kscs,jdbcType=INTEGER},
+      zt = #{zt,jdbcType=VARCHAR},
+      jg = #{jg,jdbcType=VARCHAR},
+      czy1 = #{czy1,jdbcType=VARCHAR},
+      czy2 = #{czy2,jdbcType=VARCHAR},
+      kcxh = #{kcxh,jdbcType=VARCHAR},
+      kscc = #{kscc,jdbcType=NUMERIC},
+      sjrs = #{sjrs,jdbcType=NUMERIC},
+      sendzt = #{sendzt,jdbcType=VARCHAR},
+      mess = #{mess,jdbcType=VARCHAR},
+      operate_name = #{operateName,jdbcType=VARCHAR},
+      jym = #{jym,jdbcType=VARCHAR},
+      pic = #{pic,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="github_demo.demo.entity.YwSfsb">
+    update t_yw_sfsb
+    set sjsj = #{sjsj,jdbcType=TIMESTAMP},
+      yzsj = #{yzsj,jdbcType=TIMESTAMP},
+      fzmxid = #{fzmxid,jdbcType=DECIMAL},
+      clxh = #{clxh,jdbcType=VARCHAR},
+      kchp = #{kchp,jdbcType=VARCHAR},
+      lsh = #{lsh,jdbcType=VARCHAR},
+      sfzmhm = #{sfzmhm,jdbcType=VARCHAR},
+      xm = #{xm,jdbcType=VARCHAR},
+      kscs = #{kscs,jdbcType=INTEGER},
+      zt = #{zt,jdbcType=VARCHAR},
+      jg = #{jg,jdbcType=VARCHAR},
+      czy1 = #{czy1,jdbcType=VARCHAR},
+      czy2 = #{czy2,jdbcType=VARCHAR},
+      kcxh = #{kcxh,jdbcType=VARCHAR},
+      kscc = #{kscc,jdbcType=NUMERIC},
+      sjrs = #{sjrs,jdbcType=NUMERIC},
+      sendzt = #{sendzt,jdbcType=VARCHAR},
+      mess = #{mess,jdbcType=VARCHAR},
+      operate_name = #{operateName,jdbcType=VARCHAR},
+      jym = #{jym,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>

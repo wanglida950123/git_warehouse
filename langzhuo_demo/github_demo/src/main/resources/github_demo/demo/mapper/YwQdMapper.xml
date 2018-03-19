@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="github_demo.demo.dao.YwQdMapper">
+  <resultMap id="BaseResultMap" type="github_demo.demo.entity.YwQd">
+    <id column="id" jdbcType="DECIMAL" property="id" />
+    <result column="qdrq" jdbcType="TIMESTAMP" property="qdrq" />
+    <result column="fzmx_id" jdbcType="DECIMAL" property="fzmxId" />
+    <result column="sfzmhm" jdbcType="VARCHAR" property="sfzmhm" />
+    <result column="kskm" jdbcType="VARCHAR" property="kskm" />
+    <result column="kcxh" jdbcType="VARCHAR" property="kcxh" />
+    <result column="kscc" jdbcType="NUMERIC" property="kscc" />
+    <result column="qdxm" jdbcType="VARCHAR" property="qdxm" />
+    <result column="zt" jdbcType="VARCHAR" property="zt" />
+    <result column="mess" jdbcType="VARCHAR" property="mess" />
+    <result column="jym" jdbcType="VARCHAR" property="jym" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, qdrq, fzmx_id, sfzmhm, kskm, kcxh, kscc, qdxm, zt, mess, jym
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_yw_qd
+    where id = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_yw_qd
+    where id = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="github_demo.demo.entity.YwQd">
+    insert into t_yw_qd (id, qdrq, fzmx_id, 
+      sfzmhm, kskm, kcxh, 
+      kscc, qdxm, zt, mess, 
+      jym)
+    values (#{id,jdbcType=DECIMAL}, #{qdrq,jdbcType=TIMESTAMP}, #{fzmxId,jdbcType=DECIMAL}, 
+      #{sfzmhm,jdbcType=VARCHAR}, #{kskm,jdbcType=VARCHAR}, #{kcxh,jdbcType=VARCHAR}, 
+      #{kscc,jdbcType=NUMERIC}, #{qdxm,jdbcType=VARCHAR}, #{zt,jdbcType=VARCHAR}, #{mess,jdbcType=VARCHAR}, 
+      #{jym,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="github_demo.demo.entity.YwQd">
+    insert into t_yw_qd
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="qdrq != null">
+        qdrq,
+      </if>
+      <if test="fzmxId != null">
+        fzmx_id,
+      </if>
+      <if test="sfzmhm != null">
+        sfzmhm,
+      </if>
+      <if test="kskm != null">
+        kskm,
+      </if>
+      <if test="kcxh != null">
+        kcxh,
+      </if>
+      <if test="kscc != null">
+        kscc,
+      </if>
+      <if test="qdxm != null">
+        qdxm,
+      </if>
+      <if test="zt != null">
+        zt,
+      </if>
+      <if test="mess != null">
+        mess,
+      </if>
+      <if test="jym != null">
+        jym,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="qdrq != null">
+        #{qdrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fzmxId != null">
+        #{fzmxId,jdbcType=DECIMAL},
+      </if>
+      <if test="sfzmhm != null">
+        #{sfzmhm,jdbcType=VARCHAR},
+      </if>
+      <if test="kskm != null">
+        #{kskm,jdbcType=VARCHAR},
+      </if>
+      <if test="kcxh != null">
+        #{kcxh,jdbcType=VARCHAR},
+      </if>
+      <if test="kscc != null">
+        #{kscc,jdbcType=NUMERIC},
+      </if>
+      <if test="qdxm != null">
+        #{qdxm,jdbcType=VARCHAR},
+      </if>
+      <if test="zt != null">
+        #{zt,jdbcType=VARCHAR},
+      </if>
+      <if test="mess != null">
+        #{mess,jdbcType=VARCHAR},
+      </if>
+      <if test="jym != null">
+        #{jym,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="github_demo.demo.entity.YwQd">
+    update t_yw_qd
+    <set>
+      <if test="qdrq != null">
+        qdrq = #{qdrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fzmxId != null">
+        fzmx_id = #{fzmxId,jdbcType=DECIMAL},
+      </if>
+      <if test="sfzmhm != null">
+        sfzmhm = #{sfzmhm,jdbcType=VARCHAR},
+      </if>
+      <if test="kskm != null">
+        kskm = #{kskm,jdbcType=VARCHAR},
+      </if>
+      <if test="kcxh != null">
+        kcxh = #{kcxh,jdbcType=VARCHAR},
+      </if>
+      <if test="kscc != null">
+        kscc = #{kscc,jdbcType=NUMERIC},
+      </if>
+      <if test="qdxm != null">
+        qdxm = #{qdxm,jdbcType=VARCHAR},
+      </if>
+      <if test="zt != null">
+        zt = #{zt,jdbcType=VARCHAR},
+      </if>
+      <if test="mess != null">
+        mess = #{mess,jdbcType=VARCHAR},
+      </if>
+      <if test="jym != null">
+        jym = #{jym,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="github_demo.demo.entity.YwQd">
+    update t_yw_qd
+    set qdrq = #{qdrq,jdbcType=TIMESTAMP},
+      fzmx_id = #{fzmxId,jdbcType=DECIMAL},
+      sfzmhm = #{sfzmhm,jdbcType=VARCHAR},
+      kskm = #{kskm,jdbcType=VARCHAR},
+      kcxh = #{kcxh,jdbcType=VARCHAR},
+      kscc = #{kscc,jdbcType=NUMERIC},
+      qdxm = #{qdxm,jdbcType=VARCHAR},
+      zt = #{zt,jdbcType=VARCHAR},
+      mess = #{mess,jdbcType=VARCHAR},
+      jym = #{jym,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>

@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="github_demo.demo.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="github_demo.demo.entity.User">
+    <id column="uid" jdbcType="VARCHAR" property="uid" />
+    <result column="xm" jdbcType="VARCHAR" property="xm" />
+    <result column="sfzmhm" jdbcType="VARCHAR" property="sfzmhm" />
+    <result column="mm" jdbcType="VARCHAR" property="mm" />
+    <result column="yhbh" jdbcType="VARCHAR" property="yhbh" />
+    <result column="lx" jdbcType="VARCHAR" property="lx" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="dlsjks" jdbcType="TIMESTAMP" property="dlsjks" />
+    <result column="dlsjjs" jdbcType="TIMESTAMP" property="dlsjjs" />
+    <result column="mmyxsjks" jdbcType="TIMESTAMP" property="mmyxsjks" />
+    <result column="mmyxsjjs" jdbcType="TIMESTAMP" property="mmyxsjjs" />
+    <result column="mmsbcs" jdbcType="INTEGER" property="mmsbcs" />
+    <result column="zhjsks" jdbcType="TIMESTAMP" property="zhjsks" />
+    <result column="zhjsjs" jdbcType="TIMESTAMP" property="zhjsjs" />
+    <result column="sdsjks" jdbcType="TIMESTAMP" property="sdsjks" />
+    <result column="sdsjjs" jdbcType="TIMESTAMP" property="sdsjjs" />
+    <result column="zt" jdbcType="VARCHAR" property="zt" />
+    <result column="tcqx" jdbcType="VARCHAR" property="tcqx" />
+    <result column="role_id" jdbcType="VARCHAR" property="roleId" />
+    <result column="passflag" jdbcType="VARCHAR" property="passflag" />
+    <result column="jym" jdbcType="VARCHAR" property="jym" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    uid, xm, sfzmhm, mm, yhbh, lx, ip, dlsjks, dlsjjs, mmyxsjks, mmyxsjjs, mmsbcs, zhjsks, 
+    zhjsjs, sdsjks, sdsjjs, zt, tcqx, role_id, passflag, jym
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_user
+    where uid = #{uid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from m_user
+    where uid = #{uid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="github_demo.demo.entity.User">
+    insert into m_user (uid, xm, sfzmhm, 
+      mm, yhbh, lx, ip, 
+      dlsjks, dlsjjs, mmyxsjks, 
+      mmyxsjjs, mmsbcs, zhjsks, 
+      zhjsjs, sdsjks, sdsjjs, 
+      zt, tcqx, role_id, passflag, 
+      jym)
+    values (#{uid,jdbcType=VARCHAR}, #{xm,jdbcType=VARCHAR}, #{sfzmhm,jdbcType=VARCHAR}, 
+      #{mm,jdbcType=VARCHAR}, #{yhbh,jdbcType=VARCHAR}, #{lx,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, 
+      #{dlsjks,jdbcType=TIMESTAMP}, #{dlsjjs,jdbcType=TIMESTAMP}, #{mmyxsjks,jdbcType=TIMESTAMP}, 
+      #{mmyxsjjs,jdbcType=TIMESTAMP}, #{mmsbcs,jdbcType=INTEGER}, #{zhjsks,jdbcType=TIMESTAMP}, 
+      #{zhjsjs,jdbcType=TIMESTAMP}, #{sdsjks,jdbcType=TIMESTAMP}, #{sdsjjs,jdbcType=TIMESTAMP}, 
+      #{zt,jdbcType=VARCHAR}, #{tcqx,jdbcType=VARCHAR}, #{roleId,jdbcType=VARCHAR}, #{passflag,jdbcType=VARCHAR}, 
+      #{jym,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="github_demo.demo.entity.User">
+    insert into m_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="xm != null">
+        xm,
+      </if>
+      <if test="sfzmhm != null">
+        sfzmhm,
+      </if>
+      <if test="mm != null">
+        mm,
+      </if>
+      <if test="yhbh != null">
+        yhbh,
+      </if>
+      <if test="lx != null">
+        lx,
+      </if>
+      <if test="ip != null">
+        ip,
+      </if>
+      <if test="dlsjks != null">
+        dlsjks,
+      </if>
+      <if test="dlsjjs != null">
+        dlsjjs,
+      </if>
+      <if test="mmyxsjks != null">
+        mmyxsjks,
+      </if>
+      <if test="mmyxsjjs != null">
+        mmyxsjjs,
+      </if>
+      <if test="mmsbcs != null">
+        mmsbcs,
+      </if>
+      <if test="zhjsks != null">
+        zhjsks,
+      </if>
+      <if test="zhjsjs != null">
+        zhjsjs,
+      </if>
+      <if test="sdsjks != null">
+        sdsjks,
+      </if>
+      <if test="sdsjjs != null">
+        sdsjjs,
+      </if>
+      <if test="zt != null">
+        zt,
+      </if>
+      <if test="tcqx != null">
+        tcqx,
+      </if>
+      <if test="roleId != null">
+        role_id,
+      </if>
+      <if test="passflag != null">
+        passflag,
+      </if>
+      <if test="jym != null">
+        jym,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uid != null">
+        #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="xm != null">
+        #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzmhm != null">
+        #{sfzmhm,jdbcType=VARCHAR},
+      </if>
+      <if test="mm != null">
+        #{mm,jdbcType=VARCHAR},
+      </if>
+      <if test="yhbh != null">
+        #{yhbh,jdbcType=VARCHAR},
+      </if>
+      <if test="lx != null">
+        #{lx,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="dlsjks != null">
+        #{dlsjks,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dlsjjs != null">
+        #{dlsjjs,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mmyxsjks != null">
+        #{mmyxsjks,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mmyxsjjs != null">
+        #{mmyxsjjs,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mmsbcs != null">
+        #{mmsbcs,jdbcType=INTEGER},
+      </if>
+      <if test="zhjsks != null">
+        #{zhjsks,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zhjsjs != null">
+        #{zhjsjs,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sdsjks != null">
+        #{sdsjks,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sdsjjs != null">
+        #{sdsjjs,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zt != null">
+        #{zt,jdbcType=VARCHAR},
+      </if>
+      <if test="tcqx != null">
+        #{tcqx,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        #{roleId,jdbcType=VARCHAR},
+      </if>
+      <if test="passflag != null">
+        #{passflag,jdbcType=VARCHAR},
+      </if>
+      <if test="jym != null">
+        #{jym,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="github_demo.demo.entity.User">
+    update m_user
+    <set>
+      <if test="xm != null">
+        xm = #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzmhm != null">
+        sfzmhm = #{sfzmhm,jdbcType=VARCHAR},
+      </if>
+      <if test="mm != null">
+        mm = #{mm,jdbcType=VARCHAR},
+      </if>
+      <if test="yhbh != null">
+        yhbh = #{yhbh,jdbcType=VARCHAR},
+      </if>
+      <if test="lx != null">
+        lx = #{lx,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="dlsjks != null">
+        dlsjks = #{dlsjks,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dlsjjs != null">
+        dlsjjs = #{dlsjjs,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mmyxsjks != null">
+        mmyxsjks = #{mmyxsjks,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mmyxsjjs != null">
+        mmyxsjjs = #{mmyxsjjs,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mmsbcs != null">
+        mmsbcs = #{mmsbcs,jdbcType=INTEGER},
+      </if>
+      <if test="zhjsks != null">
+        zhjsks = #{zhjsks,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zhjsjs != null">
+        zhjsjs = #{zhjsjs,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sdsjks != null">
+        sdsjks = #{sdsjks,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sdsjjs != null">
+        sdsjjs = #{sdsjjs,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zt != null">
+        zt = #{zt,jdbcType=VARCHAR},
+      </if>
+      <if test="tcqx != null">
+        tcqx = #{tcqx,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        role_id = #{roleId,jdbcType=VARCHAR},
+      </if>
+      <if test="passflag != null">
+        passflag = #{passflag,jdbcType=VARCHAR},
+      </if>
+      <if test="jym != null">
+        jym = #{jym,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where uid = #{uid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="github_demo.demo.entity.User">
+    update m_user
+    set xm = #{xm,jdbcType=VARCHAR},
+      sfzmhm = #{sfzmhm,jdbcType=VARCHAR},
+      mm = #{mm,jdbcType=VARCHAR},
+      yhbh = #{yhbh,jdbcType=VARCHAR},
+      lx = #{lx,jdbcType=VARCHAR},
+      ip = #{ip,jdbcType=VARCHAR},
+      dlsjks = #{dlsjks,jdbcType=TIMESTAMP},
+      dlsjjs = #{dlsjjs,jdbcType=TIMESTAMP},
+      mmyxsjks = #{mmyxsjks,jdbcType=TIMESTAMP},
+      mmyxsjjs = #{mmyxsjjs,jdbcType=TIMESTAMP},
+      mmsbcs = #{mmsbcs,jdbcType=INTEGER},
+      zhjsks = #{zhjsks,jdbcType=TIMESTAMP},
+      zhjsjs = #{zhjsjs,jdbcType=TIMESTAMP},
+      sdsjks = #{sdsjks,jdbcType=TIMESTAMP},
+      sdsjjs = #{sdsjjs,jdbcType=TIMESTAMP},
+      zt = #{zt,jdbcType=VARCHAR},
+      tcqx = #{tcqx,jdbcType=VARCHAR},
+      role_id = #{roleId,jdbcType=VARCHAR},
+      passflag = #{passflag,jdbcType=VARCHAR},
+      jym = #{jym,jdbcType=VARCHAR}
+    where uid = #{uid,jdbcType=VARCHAR}
+  </update>
+</mapper>

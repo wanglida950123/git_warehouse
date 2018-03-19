@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="github_demo.demo.dao.FuncMapper">
+  <resultMap id="BaseResultMap" type="github_demo.demo.entity.Func">
+    <id column="funcid" jdbcType="VARCHAR" property="funcid" />
+    <result column="parentID" jdbcType="VARCHAR" property="parentid" />
+    <result column="Seq" jdbcType="INTEGER" property="seq" />
+    <result column="Title" jdbcType="VARCHAR" property="title" />
+    <result column="ObjName" jdbcType="VARCHAR" property="objname" />
+    <result column="OpenType" jdbcType="VARCHAR" property="opentype" />
+    <result column="OpenParm" jdbcType="VARCHAR" property="openparm" />
+    <result column="fun_type" jdbcType="VARCHAR" property="funType" />
+    <result column="core_flag" jdbcType="VARCHAR" property="coreFlag" />
+    <result column="zt" jdbcType="VARCHAR" property="zt" />
+    <result column="jym" jdbcType="VARCHAR" property="jym" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    funcid, parentID, Seq, Title, ObjName, OpenType, OpenParm, fun_type, core_flag, zt, 
+    jym
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_func
+    where funcid = #{funcid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from m_func
+    where funcid = #{funcid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="github_demo.demo.entity.Func">
+    insert into m_func (funcid, parentID, Seq, 
+      Title, ObjName, OpenType, 
+      OpenParm, fun_type, core_flag, 
+      zt, jym)
+    values (#{funcid,jdbcType=VARCHAR}, #{parentid,jdbcType=VARCHAR}, #{seq,jdbcType=INTEGER}, 
+      #{title,jdbcType=VARCHAR}, #{objname,jdbcType=VARCHAR}, #{opentype,jdbcType=VARCHAR}, 
+      #{openparm,jdbcType=VARCHAR}, #{funType,jdbcType=VARCHAR}, #{coreFlag,jdbcType=VARCHAR}, 
+      #{zt,jdbcType=VARCHAR}, #{jym,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="github_demo.demo.entity.Func">
+    insert into m_func
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="funcid != null">
+        funcid,
+      </if>
+      <if test="parentid != null">
+        parentID,
+      </if>
+      <if test="seq != null">
+        Seq,
+      </if>
+      <if test="title != null">
+        Title,
+      </if>
+      <if test="objname != null">
+        ObjName,
+      </if>
+      <if test="opentype != null">
+        OpenType,
+      </if>
+      <if test="openparm != null">
+        OpenParm,
+      </if>
+      <if test="funType != null">
+        fun_type,
+      </if>
+      <if test="coreFlag != null">
+        core_flag,
+      </if>
+      <if test="zt != null">
+        zt,
+      </if>
+      <if test="jym != null">
+        jym,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="funcid != null">
+        #{funcid,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null">
+        #{parentid,jdbcType=VARCHAR},
+      </if>
+      <if test="seq != null">
+        #{seq,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="objname != null">
+        #{objname,jdbcType=VARCHAR},
+      </if>
+      <if test="opentype != null">
+        #{opentype,jdbcType=VARCHAR},
+      </if>
+      <if test="openparm != null">
+        #{openparm,jdbcType=VARCHAR},
+      </if>
+      <if test="funType != null">
+        #{funType,jdbcType=VARCHAR},
+      </if>
+      <if test="coreFlag != null">
+        #{coreFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="zt != null">
+        #{zt,jdbcType=VARCHAR},
+      </if>
+      <if test="jym != null">
+        #{jym,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="github_demo.demo.entity.Func">
+    update m_func
+    <set>
+      <if test="parentid != null">
+        parentID = #{parentid,jdbcType=VARCHAR},
+      </if>
+      <if test="seq != null">
+        Seq = #{seq,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        Title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="objname != null">
+        ObjName = #{objname,jdbcType=VARCHAR},
+      </if>
+      <if test="opentype != null">
+        OpenType = #{opentype,jdbcType=VARCHAR},
+      </if>
+      <if test="openparm != null">
+        OpenParm = #{openparm,jdbcType=VARCHAR},
+      </if>
+      <if test="funType != null">
+        fun_type = #{funType,jdbcType=VARCHAR},
+      </if>
+      <if test="coreFlag != null">
+        core_flag = #{coreFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="zt != null">
+        zt = #{zt,jdbcType=VARCHAR},
+      </if>
+      <if test="jym != null">
+        jym = #{jym,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where funcid = #{funcid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="github_demo.demo.entity.Func">
+    update m_func
+    set parentID = #{parentid,jdbcType=VARCHAR},
+      Seq = #{seq,jdbcType=INTEGER},
+      Title = #{title,jdbcType=VARCHAR},
+      ObjName = #{objname,jdbcType=VARCHAR},
+      OpenType = #{opentype,jdbcType=VARCHAR},
+      OpenParm = #{openparm,jdbcType=VARCHAR},
+      fun_type = #{funType,jdbcType=VARCHAR},
+      core_flag = #{coreFlag,jdbcType=VARCHAR},
+      zt = #{zt,jdbcType=VARCHAR},
+      jym = #{jym,jdbcType=VARCHAR}
+    where funcid = #{funcid,jdbcType=VARCHAR}
+  </update>
+</mapper>

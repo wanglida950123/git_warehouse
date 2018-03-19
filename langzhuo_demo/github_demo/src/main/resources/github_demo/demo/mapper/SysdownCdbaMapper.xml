@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="github_demo.demo.dao.SysdownCdbaMapper">
+  <resultMap id="BaseResultMap" type="github_demo.demo.entity.SysdownCdba">
+    <id column="xh" jdbcType="VARCHAR" property="xh" />
+    <result column="fzjg" jdbcType="VARCHAR" property="fzjg" />
+    <result column="glbm" jdbcType="VARCHAR" property="glbm" />
+    <result column="kskm" jdbcType="VARCHAR" property="kskm" />
+    <result column="kcmc" jdbcType="VARCHAR" property="kcmc" />
+    <result column="kcdddh" jdbcType="VARCHAR" property="kcdddh" />
+    <result column="kkcx" jdbcType="VARCHAR" property="kkcx" />
+    <result column="ywlx" jdbcType="VARCHAR" property="ywlx" />
+    <result column="zdysrq" jdbcType="TIMESTAMP" property="zdysrq" />
+    <result column="ysr" jdbcType="VARCHAR" property="ysr" />
+    <result column="kmeyyms" jdbcType="VARCHAR" property="kmeyyms" />
+    <result column="fzms" jdbcType="VARCHAR" property="fzms" />
+    <result column="kmeksrsxz" jdbcType="INTEGER" property="kmeksrsxz" />
+    <result column="kmezkrsxz" jdbcType="INTEGER" property="kmezkrsxz" />
+    <result column="kmeckrsxz" jdbcType="INTEGER" property="kmeckrsxz" />
+    <result column="zksfdz" jdbcType="VARCHAR" property="zksfdz" />
+    <result column="cksfdz" jdbcType="VARCHAR" property="cksfdz" />
+    <result column="zklwrq" jdbcType="TIMESTAMP" property="zklwrq" />
+    <result column="cklwrq" jdbcType="TIMESTAMP" property="cklwrq" />
+    <result column="kczt" jdbcType="VARCHAR" property="kczt" />
+    <result column="zksbs" jdbcType="INTEGER" property="zksbs" />
+    <result column="Cksbs" jdbcType="INTEGER" property="cksbs" />
+    <result column="cjsj" jdbcType="TIMESTAMP" property="cjsj" />
+    <result column="gxsj" jdbcType="TIMESTAMP" property="gxsj" />
+    <result column="jym" jdbcType="VARCHAR" property="jym" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    xh, fzjg, glbm, kskm, kcmc, kcdddh, kkcx, ywlx, zdysrq, ysr, kmeyyms, fzms, kmeksrsxz, 
+    kmezkrsxz, kmeckrsxz, zksfdz, cksfdz, zklwrq, cklwrq, kczt, zksbs, Cksbs, cjsj, gxsj, 
+    jym
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_sysdown_cdba
+    where xh = #{xh,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_sysdown_cdba
+    where xh = #{xh,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="github_demo.demo.entity.SysdownCdba">
+    insert into t_sysdown_cdba (xh, fzjg, glbm, 
+      kskm, kcmc, kcdddh, 
+      kkcx, ywlx, zdysrq, 
+      ysr, kmeyyms, fzms, 
+      kmeksrsxz, kmezkrsxz, kmeckrsxz, 
+      zksfdz, cksfdz, zklwrq, 
+      cklwrq, kczt, zksbs, 
+      Cksbs, cjsj, gxsj, 
+      jym)
+    values (#{xh,jdbcType=VARCHAR}, #{fzjg,jdbcType=VARCHAR}, #{glbm,jdbcType=VARCHAR}, 
+      #{kskm,jdbcType=VARCHAR}, #{kcmc,jdbcType=VARCHAR}, #{kcdddh,jdbcType=VARCHAR}, 
+      #{kkcx,jdbcType=VARCHAR}, #{ywlx,jdbcType=VARCHAR}, #{zdysrq,jdbcType=TIMESTAMP}, 
+      #{ysr,jdbcType=VARCHAR}, #{kmeyyms,jdbcType=VARCHAR}, #{fzms,jdbcType=VARCHAR}, 
+      #{kmeksrsxz,jdbcType=INTEGER}, #{kmezkrsxz,jdbcType=INTEGER}, #{kmeckrsxz,jdbcType=INTEGER}, 
+      #{zksfdz,jdbcType=VARCHAR}, #{cksfdz,jdbcType=VARCHAR}, #{zklwrq,jdbcType=TIMESTAMP}, 
+      #{cklwrq,jdbcType=TIMESTAMP}, #{kczt,jdbcType=VARCHAR}, #{zksbs,jdbcType=INTEGER}, 
+      #{cksbs,jdbcType=INTEGER}, #{cjsj,jdbcType=TIMESTAMP}, #{gxsj,jdbcType=TIMESTAMP}, 
+      #{jym,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="github_demo.demo.entity.SysdownCdba">
+    insert into t_sysdown_cdba
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="xh != null">
+        xh,
+      </if>
+      <if test="fzjg != null">
+        fzjg,
+      </if>
+      <if test="glbm != null">
+        glbm,
+      </if>
+      <if test="kskm != null">
+        kskm,
+      </if>
+      <if test="kcmc != null">
+        kcmc,
+      </if>
+      <if test="kcdddh != null">
+        kcdddh,
+      </if>
+      <if test="kkcx != null">
+        kkcx,
+      </if>
+      <if test="ywlx != null">
+        ywlx,
+      </if>
+      <if test="zdysrq != null">
+        zdysrq,
+      </if>
+      <if test="ysr != null">
+        ysr,
+      </if>
+      <if test="kmeyyms != null">
+        kmeyyms,
+      </if>
+      <if test="fzms != null">
+        fzms,
+      </if>
+      <if test="kmeksrsxz != null">
+        kmeksrsxz,
+      </if>
+      <if test="kmezkrsxz != null">
+        kmezkrsxz,
+      </if>
+      <if test="kmeckrsxz != null">
+        kmeckrsxz,
+      </if>
+      <if test="zksfdz != null">
+        zksfdz,
+      </if>
+      <if test="cksfdz != null">
+        cksfdz,
+      </if>
+      <if test="zklwrq != null">
+        zklwrq,
+      </if>
+      <if test="cklwrq != null">
+        cklwrq,
+      </if>
+      <if test="kczt != null">
+        kczt,
+      </if>
+      <if test="zksbs != null">
+        zksbs,
+      </if>
+      <if test="cksbs != null">
+        Cksbs,
+      </if>
+      <if test="cjsj != null">
+        cjsj,
+      </if>
+      <if test="gxsj != null">
+        gxsj,
+      </if>
+      <if test="jym != null">
+        jym,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="xh != null">
+        #{xh,jdbcType=VARCHAR},
+      </if>
+      <if test="fzjg != null">
+        #{fzjg,jdbcType=VARCHAR},
+      </if>
+      <if test="glbm != null">
+        #{glbm,jdbcType=VARCHAR},
+      </if>
+      <if test="kskm != null">
+        #{kskm,jdbcType=VARCHAR},
+      </if>
+      <if test="kcmc != null">
+        #{kcmc,jdbcType=VARCHAR},
+      </if>
+      <if test="kcdddh != null">
+        #{kcdddh,jdbcType=VARCHAR},
+      </if>
+      <if test="kkcx != null">
+        #{kkcx,jdbcType=VARCHAR},
+      </if>
+      <if test="ywlx != null">
+        #{ywlx,jdbcType=VARCHAR},
+      </if>
+      <if test="zdysrq != null">
+        #{zdysrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ysr != null">
+        #{ysr,jdbcType=VARCHAR},
+      </if>
+      <if test="kmeyyms != null">
+        #{kmeyyms,jdbcType=VARCHAR},
+      </if>
+      <if test="fzms != null">
+        #{fzms,jdbcType=VARCHAR},
+      </if>
+      <if test="kmeksrsxz != null">
+        #{kmeksrsxz,jdbcType=INTEGER},
+      </if>
+      <if test="kmezkrsxz != null">
+        #{kmezkrsxz,jdbcType=INTEGER},
+      </if>
+      <if test="kmeckrsxz != null">
+        #{kmeckrsxz,jdbcType=INTEGER},
+      </if>
+      <if test="zksfdz != null">
+        #{zksfdz,jdbcType=VARCHAR},
+      </if>
+      <if test="cksfdz != null">
+        #{cksfdz,jdbcType=VARCHAR},
+      </if>
+      <if test="zklwrq != null">
+        #{zklwrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cklwrq != null">
+        #{cklwrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="kczt != null">
+        #{kczt,jdbcType=VARCHAR},
+      </if>
+      <if test="zksbs != null">
+        #{zksbs,jdbcType=INTEGER},
+      </if>
+      <if test="cksbs != null">
+        #{cksbs,jdbcType=INTEGER},
+      </if>
+      <if test="cjsj != null">
+        #{cjsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gxsj != null">
+        #{gxsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jym != null">
+        #{jym,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="github_demo.demo.entity.SysdownCdba">
+    update t_sysdown_cdba
+    <set>
+      <if test="fzjg != null">
+        fzjg = #{fzjg,jdbcType=VARCHAR},
+      </if>
+      <if test="glbm != null">
+        glbm = #{glbm,jdbcType=VARCHAR},
+      </if>
+      <if test="kskm != null">
+        kskm = #{kskm,jdbcType=VARCHAR},
+      </if>
+      <if test="kcmc != null">
+        kcmc = #{kcmc,jdbcType=VARCHAR},
+      </if>
+      <if test="kcdddh != null">
+        kcdddh = #{kcdddh,jdbcType=VARCHAR},
+      </if>
+      <if test="kkcx != null">
+        kkcx = #{kkcx,jdbcType=VARCHAR},
+      </if>
+      <if test="ywlx != null">
+        ywlx = #{ywlx,jdbcType=VARCHAR},
+      </if>
+      <if test="zdysrq != null">
+        zdysrq = #{zdysrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ysr != null">
+        ysr = #{ysr,jdbcType=VARCHAR},
+      </if>
+      <if test="kmeyyms != null">
+        kmeyyms = #{kmeyyms,jdbcType=VARCHAR},
+      </if>
+      <if test="fzms != null">
+        fzms = #{fzms,jdbcType=VARCHAR},
+      </if>
+      <if test="kmeksrsxz != null">
+        kmeksrsxz = #{kmeksrsxz,jdbcType=INTEGER},
+      </if>
+      <if test="kmezkrsxz != null">
+        kmezkrsxz = #{kmezkrsxz,jdbcType=INTEGER},
+      </if>
+      <if test="kmeckrsxz != null">
+        kmeckrsxz = #{kmeckrsxz,jdbcType=INTEGER},
+      </if>
+      <if test="zksfdz != null">
+        zksfdz = #{zksfdz,jdbcType=VARCHAR},
+      </if>
+      <if test="cksfdz != null">
+        cksfdz = #{cksfdz,jdbcType=VARCHAR},
+      </if>
+      <if test="zklwrq != null">
+        zklwrq = #{zklwrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cklwrq != null">
+        cklwrq = #{cklwrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="kczt != null">
+        kczt = #{kczt,jdbcType=VARCHAR},
+      </if>
+      <if test="zksbs != null">
+        zksbs = #{zksbs,jdbcType=INTEGER},
+      </if>
+      <if test="cksbs != null">
+        Cksbs = #{cksbs,jdbcType=INTEGER},
+      </if>
+      <if test="cjsj != null">
+        cjsj = #{cjsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gxsj != null">
+        gxsj = #{gxsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jym != null">
+        jym = #{jym,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where xh = #{xh,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="github_demo.demo.entity.SysdownCdba">
+    update t_sysdown_cdba
+    set fzjg = #{fzjg,jdbcType=VARCHAR},
+      glbm = #{glbm,jdbcType=VARCHAR},
+      kskm = #{kskm,jdbcType=VARCHAR},
+      kcmc = #{kcmc,jdbcType=VARCHAR},
+      kcdddh = #{kcdddh,jdbcType=VARCHAR},
+      kkcx = #{kkcx,jdbcType=VARCHAR},
+      ywlx = #{ywlx,jdbcType=VARCHAR},
+      zdysrq = #{zdysrq,jdbcType=TIMESTAMP},
+      ysr = #{ysr,jdbcType=VARCHAR},
+      kmeyyms = #{kmeyyms,jdbcType=VARCHAR},
+      fzms = #{fzms,jdbcType=VARCHAR},
+      kmeksrsxz = #{kmeksrsxz,jdbcType=INTEGER},
+      kmezkrsxz = #{kmezkrsxz,jdbcType=INTEGER},
+      kmeckrsxz = #{kmeckrsxz,jdbcType=INTEGER},
+      zksfdz = #{zksfdz,jdbcType=VARCHAR},
+      cksfdz = #{cksfdz,jdbcType=VARCHAR},
+      zklwrq = #{zklwrq,jdbcType=TIMESTAMP},
+      cklwrq = #{cklwrq,jdbcType=TIMESTAMP},
+      kczt = #{kczt,jdbcType=VARCHAR},
+      zksbs = #{zksbs,jdbcType=INTEGER},
+      Cksbs = #{cksbs,jdbcType=INTEGER},
+      cjsj = #{cjsj,jdbcType=TIMESTAMP},
+      gxsj = #{gxsj,jdbcType=TIMESTAMP},
+      jym = #{jym,jdbcType=VARCHAR}
+    where xh = #{xh,jdbcType=VARCHAR}
+  </update>
+</mapper>

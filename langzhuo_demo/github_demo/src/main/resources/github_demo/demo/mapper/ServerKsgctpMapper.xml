@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="github_demo.demo.dao.ServerKsgctpMapper">
+  <resultMap id="BaseResultMap" type="github_demo.demo.entity.ServerKsgctp">
+    <id column="gczp_id" jdbcType="DECIMAL" property="gczpId" />
+    <result column="fzmx_id" jdbcType="DECIMAL" property="fzmxId" />
+    <result column="kscs" jdbcType="INTEGER" property="kscs" />
+    <result column="lsh" jdbcType="VARCHAR" property="lsh" />
+    <result column="sfzmhm" jdbcType="VARCHAR" property="sfzmhm" />
+    <result column="ksxm" jdbcType="VARCHAR" property="ksxm" />
+    <result column="cs" jdbcType="DECIMAL" property="cs" />
+    <result column="zpsj" jdbcType="TIMESTAMP" property="zpsj" />
+    <result column="sendzt" jdbcType="VARCHAR" property="sendzt" />
+    <result column="mess" jdbcType="VARCHAR" property="mess" />
+    <result column="printflag" jdbcType="INTEGER" property="printflag" />
+    <result column="jym" jdbcType="VARCHAR" property="jym" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="github_demo.demo.entity.ServerKsgctp">
+    <result column="zp" jdbcType="LONGVARCHAR" property="zp" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    gczp_id, fzmx_id, kscs, lsh, sfzmhm, ksxm, cs, zpsj, sendzt, mess, printflag, jym
+  </sql>
+  <sql id="Blob_Column_List">
+    zp
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_server_ksgctp
+    where gczp_id = #{gczpId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_server_ksgctp
+    where gczp_id = #{gczpId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="github_demo.demo.entity.ServerKsgctp">
+    insert into t_server_ksgctp (gczp_id, fzmx_id, kscs, 
+      lsh, sfzmhm, ksxm, 
+      cs, zpsj, sendzt, 
+      mess, printflag, jym, 
+      zp)
+    values (#{gczpId,jdbcType=DECIMAL}, #{fzmxId,jdbcType=DECIMAL}, #{kscs,jdbcType=INTEGER}, 
+      #{lsh,jdbcType=VARCHAR}, #{sfzmhm,jdbcType=VARCHAR}, #{ksxm,jdbcType=VARCHAR}, 
+      #{cs,jdbcType=DECIMAL}, #{zpsj,jdbcType=TIMESTAMP}, #{sendzt,jdbcType=VARCHAR}, 
+      #{mess,jdbcType=VARCHAR}, #{printflag,jdbcType=INTEGER}, #{jym,jdbcType=VARCHAR}, 
+      #{zp,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="github_demo.demo.entity.ServerKsgctp">
+    insert into t_server_ksgctp
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="gczpId != null">
+        gczp_id,
+      </if>
+      <if test="fzmxId != null">
+        fzmx_id,
+      </if>
+      <if test="kscs != null">
+        kscs,
+      </if>
+      <if test="lsh != null">
+        lsh,
+      </if>
+      <if test="sfzmhm != null">
+        sfzmhm,
+      </if>
+      <if test="ksxm != null">
+        ksxm,
+      </if>
+      <if test="cs != null">
+        cs,
+      </if>
+      <if test="zpsj != null">
+        zpsj,
+      </if>
+      <if test="sendzt != null">
+        sendzt,
+      </if>
+      <if test="mess != null">
+        mess,
+      </if>
+      <if test="printflag != null">
+        printflag,
+      </if>
+      <if test="jym != null">
+        jym,
+      </if>
+      <if test="zp != null">
+        zp,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="gczpId != null">
+        #{gczpId,jdbcType=DECIMAL},
+      </if>
+      <if test="fzmxId != null">
+        #{fzmxId,jdbcType=DECIMAL},
+      </if>
+      <if test="kscs != null">
+        #{kscs,jdbcType=INTEGER},
+      </if>
+      <if test="lsh != null">
+        #{lsh,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzmhm != null">
+        #{sfzmhm,jdbcType=VARCHAR},
+      </if>
+      <if test="ksxm != null">
+        #{ksxm,jdbcType=VARCHAR},
+      </if>
+      <if test="cs != null">
+        #{cs,jdbcType=DECIMAL},
+      </if>
+      <if test="zpsj != null">
+        #{zpsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendzt != null">
+        #{sendzt,jdbcType=VARCHAR},
+      </if>
+      <if test="mess != null">
+        #{mess,jdbcType=VARCHAR},
+      </if>
+      <if test="printflag != null">
+        #{printflag,jdbcType=INTEGER},
+      </if>
+      <if test="jym != null">
+        #{jym,jdbcType=VARCHAR},
+      </if>
+      <if test="zp != null">
+        #{zp,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="github_demo.demo.entity.ServerKsgctp">
+    update t_server_ksgctp
+    <set>
+      <if test="fzmxId != null">
+        fzmx_id = #{fzmxId,jdbcType=DECIMAL},
+      </if>
+      <if test="kscs != null">
+        kscs = #{kscs,jdbcType=INTEGER},
+      </if>
+      <if test="lsh != null">
+        lsh = #{lsh,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzmhm != null">
+        sfzmhm = #{sfzmhm,jdbcType=VARCHAR},
+      </if>
+      <if test="ksxm != null">
+        ksxm = #{ksxm,jdbcType=VARCHAR},
+      </if>
+      <if test="cs != null">
+        cs = #{cs,jdbcType=DECIMAL},
+      </if>
+      <if test="zpsj != null">
+        zpsj = #{zpsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendzt != null">
+        sendzt = #{sendzt,jdbcType=VARCHAR},
+      </if>
+      <if test="mess != null">
+        mess = #{mess,jdbcType=VARCHAR},
+      </if>
+      <if test="printflag != null">
+        printflag = #{printflag,jdbcType=INTEGER},
+      </if>
+      <if test="jym != null">
+        jym = #{jym,jdbcType=VARCHAR},
+      </if>
+      <if test="zp != null">
+        zp = #{zp,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where gczp_id = #{gczpId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="github_demo.demo.entity.ServerKsgctp">
+    update t_server_ksgctp
+    set fzmx_id = #{fzmxId,jdbcType=DECIMAL},
+      kscs = #{kscs,jdbcType=INTEGER},
+      lsh = #{lsh,jdbcType=VARCHAR},
+      sfzmhm = #{sfzmhm,jdbcType=VARCHAR},
+      ksxm = #{ksxm,jdbcType=VARCHAR},
+      cs = #{cs,jdbcType=DECIMAL},
+      zpsj = #{zpsj,jdbcType=TIMESTAMP},
+      sendzt = #{sendzt,jdbcType=VARCHAR},
+      mess = #{mess,jdbcType=VARCHAR},
+      printflag = #{printflag,jdbcType=INTEGER},
+      jym = #{jym,jdbcType=VARCHAR},
+      zp = #{zp,jdbcType=LONGVARCHAR}
+    where gczp_id = #{gczpId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="github_demo.demo.entity.ServerKsgctp">
+    update t_server_ksgctp
+    set fzmx_id = #{fzmxId,jdbcType=DECIMAL},
+      kscs = #{kscs,jdbcType=INTEGER},
+      lsh = #{lsh,jdbcType=VARCHAR},
+      sfzmhm = #{sfzmhm,jdbcType=VARCHAR},
+      ksxm = #{ksxm,jdbcType=VARCHAR},
+      cs = #{cs,jdbcType=DECIMAL},
+      zpsj = #{zpsj,jdbcType=TIMESTAMP},
+      sendzt = #{sendzt,jdbcType=VARCHAR},
+      mess = #{mess,jdbcType=VARCHAR},
+      printflag = #{printflag,jdbcType=INTEGER},
+      jym = #{jym,jdbcType=VARCHAR}
+    where gczp_id = #{gczpId,jdbcType=DECIMAL}
+  </update>
+</mapper>
