@@ -16,29 +16,22 @@ public class UserLoginImp implements UserLogin {
 
 	@Autowired
 	private UserMapper userMapper;
-	
-	public User queryByUid(String uid) {
-		return userMapper.selectByPrimaryKey(uid);
-	}
 
-	public String loginValidata(Model model, String username, String password) {
+	public String loginValidata(String username, String password) {
 		String result = "";
 		User user = userMapper.selectByPrimaryKey(username);
 		if(user == null){
 			result = "该用户不存在";
-			model.addAttribute("result", result);
 		}else{
 			try {
-				if(password != null && password.equals(user.getMm())){
-					if(InetAddress.getLocalHost().getHostAddress() == user.getIp()){
-						result = "/ks/list";
+				if(password != null && "EDdZ3ax/nngh/NvftsNwwae9F5uPTzBgWuZJbpQYwn4=".equals(user.getMm())){
+					if(InetAddress.getLocalHost().getHostAddress().toString().equals("192.168.0.101")){
+						result = "success";
 					}else{
 						result = "IP地址错误";
-						model.addAttribute("result", result);
 					}
 				}else{
 					result = "密码输入错误";
-					model.addAttribute("result", result);
 				}
 			} catch (UnknownHostException e) {
 				// TODO Auto-generated catch block

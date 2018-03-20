@@ -1,5 +1,7 @@
 package github_demo.demo.dao;
 
+import java.util.List;
+
 import github_demo.demo.entity.Func;
 
 public interface FuncMapper {
@@ -14,4 +16,11 @@ public interface FuncMapper {
     int updateByPrimaryKeySelective(Func record);
 
     int updateByPrimaryKey(Func record);
+    
+    /**
+     * 根据用户id查询功能权限
+     * @param uid
+     * @return
+     */
+    List<Func> selectByUid(String uid);
 }

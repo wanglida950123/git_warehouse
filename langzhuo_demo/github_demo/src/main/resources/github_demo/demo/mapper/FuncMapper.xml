@@ -18,6 +18,30 @@
     funcid, parentID, Seq, Title, ObjName, OpenType, OpenParm, fun_type, core_flag, zt, 
     jym
   </sql>
+  <select id="selectByUid" parameterType="java.lang.String" resultMap="BaseResultMap">
+  	select 
+  	<include refid="Base_Column_List"/>	
+  	from m_func f 
+  	where 
+  	1=1 and
+  	f.funcid in (SELECT
+		q.funcid
+	FROM
+		m_quanxuan q
+	WHERE
+		q.role_id = (
+			SELECT
+				u.role_id
+			FROM
+				m_user u
+			WHERE
+			1=1 
+			<if test="_parameter != null">
+				and uid = #{uid,jdbcType=VARCHAR}
+			</if>
+		))
+  </select>
+  
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
