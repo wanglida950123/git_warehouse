@@ -15,7 +15,7 @@
 		<!-- 数据库基本信息 -->
 
 		<jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-			connectionURL="jdbc:sqlserver://localhost:1433;DatabaseName=km2_newdata" userId="sa" password="systemadmin"></jdbcConnection>
+			connectionURL="jdbc:sqlserver://localhost:1433;DatabaseName=km2_newdata" userId="sa" password="sylz20172017sylz@"></jdbcConnection>
 
 		<javaTypeResolver>
 			<property name="forceBigDecimals" value="false" />

@@ -5,6 +5,6 @@
 
 	<script type="text/javascript">
 	
-		window.location.href="ks/login.html";
+		window.location.href="/views/login.jsp";
 	</script>
 </html>

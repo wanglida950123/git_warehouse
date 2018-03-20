@@ -14,9 +14,9 @@
 </head>
 <body>
 	<div style="">
-		<form id="form" method="post" action="login">
-			<input type="text" name="username">
-			<input type="password" name="password">
+		<form id="form" method="post" action="${pageContext.request.contextPath}/ks/login.action">
+			用户名:<input type="text" name="username">
+			密    码:<input type="password" name="password">
 			<button type="submit">登陆</button>
 		</form>
 	</div>

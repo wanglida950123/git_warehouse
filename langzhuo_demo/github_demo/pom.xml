@@ -31,6 +31,11 @@
           <artifactId>spring-context-support</artifactId>
           <version>${spring.version}</version>
       </dependency>
+      <dependency>
+ 		  <groupId>org.springframework</groupId>
+ 		  <artifactId>spring-tx</artifactId>
+ 		  <version>${spring.version}</version>
+  	  </dependency>
       <!-- aspectJ AOP 织入器 -->
       <dependency>
           <groupId>org.aspectj</groupId>
@@ -74,11 +79,11 @@
           <version>4.10</version>
       </dependency>
       <!--c3p0 连接池 -->
-      <dependency>
-          <groupId>c3p0</groupId>
-          <artifactId>c3p0</artifactId>
-          <version>0.9.1.2</version>
-      </dependency>
+<!--       <dependency> -->
+<!--           <groupId>c3p0</groupId> -->
+<!--           <artifactId>c3p0</artifactId> -->
+<!--           <version>0.9.1.2</version> -->
+<!--       </dependency> -->
       <!-- JSTL -->
       <dependency>
           <groupId>javax.servlet</groupId>
@@ -145,6 +150,12 @@
 		<groupId>commons-dbcp</groupId>
 		<artifactId>commons-dbcp</artifactId>
 		<version>1.2.1</version>
+		<exclusions>
+			<exclusion>
+				<artifactId>xercesImpl</artifactId>
+				<groupId>xerces</groupId>
+		</exclusion>
+</exclusions>
 	</dependency>
   </dependencies>
   <build>
