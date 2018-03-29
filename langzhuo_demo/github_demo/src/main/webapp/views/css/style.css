@@ -1,0 +1,19 @@
+.main {
+	height:300px; border:1px solid #000; margin:0 auto;text-align: center; margin-left: auto;
+	margin-right: auto;
+}
+@media screen and (min-width: 1201px) { 
+	.main {width:1200px}
+}
+@media screen and (max-width: 1200px) { 
+.main {width: 900px} 
+} 
+@media screen and (max-width: 901px) { 
+.main {width: 200px} 
+} 
+@media screen and (max-width: 500px) { 
+.main {width: 100px} 
+} 
+
+
+.

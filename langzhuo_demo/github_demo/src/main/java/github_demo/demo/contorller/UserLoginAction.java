@@ -20,18 +20,17 @@ public class UserLoginAction {
 	private UserLogin userLogin;
 	
 	@Autowired
-	private FuncService funcService;
+	private FuncService funcService; 
 	
 	@RequestMapping("/login")
 	public String login(Model model,@RequestParam(required=true) String username, @RequestParam(required=true) String password){
 		String result = userLogin.loginValidata(username, password);
-		if(result.equals("success")){
-			List<Func> funcList = funcService.queryFuncByUid(username);
-			return "funcList";
-		}else{
-			model.addAttribute("result",result);
-			return "login";
-		}
+		return result;
+	}
+	
+	public String funcList(@RequestParam(required=true) String uid){
+		List<Func> funcList = funcService.queryFuncByUid(uid);
+		return "funcList";
 	}
 	
 	

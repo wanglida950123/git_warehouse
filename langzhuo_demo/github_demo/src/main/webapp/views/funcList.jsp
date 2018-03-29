@@ -8,8 +8,6 @@
 <title>欢迎界面</title>
 
 <script type="text/javascript">
-	var result = ${result};
-	alert(result);
 </script>
 </head>
 <h1>welcome</h1>

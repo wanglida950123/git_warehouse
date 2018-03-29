@@ -5,7 +5,6 @@ import java.net.UnknownHostException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import github_demo.demo.dao.UserMapper;
 import github_demo.demo.entity.User;
@@ -25,7 +24,7 @@ public class UserLoginImp implements UserLogin {
 		}else{
 			try {
 				if(password != null && "EDdZ3ax/nngh/NvftsNwwae9F5uPTzBgWuZJbpQYwn4=".equals(user.getMm())){
-					if(InetAddress.getLocalHost().getHostAddress().toString().equals("192.168.0.101")){
+					if(InetAddress.getLocalHost().getHostAddress().toString().equals("192.168.1.4")){
 						result = "success";
 					}else{
 						result = "IPµÿ÷∑¥ÌŒÛ";

@@ -19,7 +19,7 @@
   	    <mvc:annotation-driven />
   	    
   	    <!-- 3.Spring MVC不处理静态资源  （不一定需要）-->
-<!--    		<mvc:default-servlet-handler/> -->
+   		<mvc:default-servlet-handler/>
   	    
   	    
   	    <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
